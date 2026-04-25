@@ -15,19 +15,19 @@
       <li>
         <a href="#">Liver Health Basics ▾</a>
         <div class="dropdown">
-          <a href="https://www.liverhealthconnect.com/liver-health-basics/fatty-liver-disease">Fatty Liver Disease</a>
-          <a href="https://www.liverhealthconnect.com/liver-health-basics/alcohol-related-liver-disease">Alcohol-Related Liver Disease</a>
-          <a href="https://www.liverhealthconnect.com/liver-health-basics/viral-hepatitis">Viral Hepatitis</a>
-          <a href="https://www.liverhealthconnect.com/liver-health-basics/autoimmune-liver-diseases">Autoimmune Liver Diseases</a>
-          <a href="https://www.liverhealthconnect.com/liver-health-basics/liver-cancer">Liver Cancer</a>
-          <a href="https://www.liverhealthconnect.com/liver-health-basics/cirrhosis">Cirrhosis</a>
+          <a href="liver-health-basics/fatty-liver-disease/index.html">Fatty Liver Disease</a>
+          <a href="liver-health-basics/alcohol-related-liver-disease/index.html">Alcohol-Related Liver Disease</a>
+          <a href="liver-health-basics/viral-hepatitis/index.html">Viral Hepatitis</a>
+          <a href="liver-health-basics/autoimmune-liver-diseases/index.html">Autoimmune Liver Diseases</a>
+          <a href="liver-health-basics/liver-cancer/index.html">Liver Cancer</a>
+          <a href="liver-health-basics/cirrhosis/index.html">Cirrhosis</a>
         </div>
       </li>
-      <li><a href="https://www.liverhealthconnect.com/community-events-outreach">Events &amp; Outreach</a></li>
-      <li><a href="https://www.liverhealthconnect.com/our-partners">Our Partners</a></li>
-      <li><a href="https://www.liverhealthconnect.com/pathways-to-care">Pathways to Care</a></li>
-      <li><a href="https://www.liverhealthconnect.com/diet-and-liver-health">Diet &amp; Liver Health</a></li>
-      <li><a href="https://www.liverhealthconnect.com/our-team">Our Team</a></li>
+      <li><a href="community-events-outreach/index.html">Events &amp; Outreach</a></li>
+      <li><a href="our-partners/index.html">Our Partners</a></li>
+      <li><a href="pathways-to-care/index.html">Pathways to Care</a></li>
+      <li><a href="diet-and-liver-health/index.html">Diet &amp; Liver Health</a></li>
+      <li><a href="our-team/index.html">Our Team</a></li>
       <li><a href="contact-us/index.html">Contact Us</a></li>
     </ul>
     <div class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -47,12 +47,12 @@
       <div class="footer-links">
         <h4>Explore</h4>
         <ul>
-          <li><a href="https://www.liverhealthconnect.com/liver-health-basics">Liver Health Basics</a></li>
-          <li><a href="https://www.liverhealthconnect.com/community-events-outreach">Events &amp; Outreach</a></li>
-          <li><a href="https://www.liverhealthconnect.com/pathways-to-care">Pathways to Care</a></li>
-          <li><a href="https://www.liverhealthconnect.com/diet-and-liver-health">Diet &amp; Liver Health</a></li>
-          <li><a href="https://www.liverhealthconnect.com/our-team">Our Team</a></li>
-          <li><a href="https://www.liverhealthconnect.com/contact-us">Contact Us</a></li>
+          <li><a href="liver-health-basics/index.html">Liver Health Basics</a></li>
+          <li><a href="community-events-outreach/index.html">Events &amp; Outreach</a></li>
+          <li><a href="pathways-to-care/index.html">Pathways to Care</a></li>
+          <li><a href="diet-and-liver-health/index.html">Diet &amp; Liver Health</a></li>
+          <li><a href="our-team/index.html">Our Team</a></li>
+          <li><a href="contact-us/index.html">Contact Us</a></li>
         </ul>
       </div>
 
