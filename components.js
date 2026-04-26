@@ -9,7 +9,7 @@ function loadNavbar() {
   const navbarHTML = `
     <nav id="navbar" class="navbar">
       <div class="nav-container">
-        <a href="/" class="logo">
+        <a href="/LHC-website-english/" class="logo">
           <img src="/LHC_logo_transparent.png" alt="LHC Logo" class="navbar-logo">
         </a>
         <button class="hamburger" id="hamburger">
@@ -19,13 +19,13 @@ function loadNavbar() {
         </button>
         <ul class="nav-menu" id="nav-menu">
           <li><a href="/index.html">Home</a></li>
-          <li><a href="/liver-health-basics/index.html">Liver Health Basics</a></li>
-          <li><a href="/diet-and-liver-health/index.html">Diet & Liver Health</a></li>
-          <li><a href="/community-events-outreach/index.html">Events & Outreach</a></li>
-          <li><a href="/our-partners/index.html">Our Partners</a></li>
-          <li><a href="/our-team/index.html">Our Team</a></li>
-          <li><a href="/pathways-to-care/index.html">Pathways to Care</a></li>
-          <li><a href="/contact-us/index.html">Contact Us</a></li>
+          <li><a href="/LHC-website-english/liver-health-basics/index.html">Liver Health Basics</a></li>
+          <li><a href="/LHC-website-english/diet-and-liver-health/index.html">Diet & Liver Health</a></li>
+          <li><a href="/LHC-website-english/community-events-outreach/index.html">Events & Outreach</a></li>
+          <li><a href="/LHC-website-english/our-partners/index.html">Our Partners</a></li>
+          <li><a href="/LHC-website-english/our-team/index.html">Our Team</a></li>
+          <li><a href="/LHC-website-english/pathways-to-care/index.html">Pathways to Care</a></li>
+          <li><a href="/LHC-website-english/contact-us/index.html">Contact Us</a></li>
         </ul>
       </div>
     </nav>
