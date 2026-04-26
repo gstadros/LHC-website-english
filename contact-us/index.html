@@ -519,6 +519,8 @@
   </style>
 </head>
 <body>
+  <div id="navbar-container"></div>
+
 <div style="height:var(--nav-h)"></div>
 
   <div class="page-hero">
@@ -560,9 +562,9 @@
     </div>
   </div>
 
-<div id="google_translate_element" style="display:none"></div>
-<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"fr,vi,zh-CN,zh-TW,ko,tl,ar,es,fa,pa,hi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element");}</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
 <script>
 (function() {
   // Detect path depth so links work from any subfolder
@@ -573,12 +575,10 @@
   if (root === '') root = './';
 
   // ── NAV HTML (links use root-relative paths) ──────────────────────────
-  var NAV_HTML = `<div id="navbar"></div>
-`;
+  var NAV_HTML = ``;
 
   // ── FOOTER HTML ───────────────────────────────────────────────────────
-  var FOOTER_HTML = `<div id="footer"></div>
-`;
+  var FOOTER_HTML = ``;
 
   // Fix all hrefs/src in nav and footer to be root-relative
   function fixPaths(html, root) {
@@ -704,6 +704,10 @@
 
 })();
 </script>
+
+  <div id="footer-container"></div>
+
   <script src="../components.js"></script>
+  <script src="../nav.js"></script>
 </body>
 </html>

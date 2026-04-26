@@ -523,10 +523,13 @@
   </style>
 </head>
 <body>
+  <div id="navbar-container"></div>
+
 
   <!-- NAV -->
-  <div id="navbar"></div>
-<!-- HERO -->
+  
+
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
 
@@ -625,8 +628,9 @@
   </section>
 
   <!-- FOOTER -->
-  <div id="footer"></div>
-<script>
+  
+
+  <script>
     // ── Floating Particles
     const container = document.getElementById('particles');
     for (let i = 0; i < 18; i++) {
@@ -667,6 +671,10 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => observer.observe(el));
   </script>
-  <script src="./components.js"></script>
+
+  <div id="footer-container"></div>
+
+  <script src="components.js"></script>
+  <script src="nav.js"></script>
 </body>
 </html>
