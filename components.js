@@ -54,4 +54,6 @@ async function initComponents() {
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
   }
 
+}
+
 document.addEventListener('DOMContentLoaded', initComponents);
