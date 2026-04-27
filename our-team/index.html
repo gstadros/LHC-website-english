@@ -124,10 +124,19 @@
       transform: translateY(-5px);
       box-shadow: 0 12px 40px rgba(30,135,53,0.15);
     }
-    .team-card-img {
+    .team-card-img-wrap {
       width: 100%; height: 260px;
+      overflow: hidden; position: relative;
+    }
+    .team-card-img {
+      width: 100%; height: 100%;
       object-fit: cover; object-position: top;
       display: block;
+      transition: transform 0.6s ease, object-position 0.6s ease;
+    }
+    .team-card:hover .team-card-img {
+      transform: scale(1.08);
+      object-position: center;
     }
     .team-card-img-placeholder {
       width: 100%; height: 260px;
@@ -208,7 +217,7 @@
     <div class="team-grid">
 
       <div class="team-card reveal delay-1">
-        <img class="team-card-img" src="../assets/images/kim.jpeg" alt="Dr. Kim Cheema">
+        <div class="team-card-img-wrap"><img class="team-card-img" src="../assets/images/kim.jpeg" alt="Dr. Kim Cheema"></div>
         <div class="team-card-body">
           <h3>Dr. Kim Cheema, MD FRCPC</h3>
           <div class="role">Community Partnerships and Research Liaison</div>
@@ -217,7 +226,7 @@
       </div>
 
       <div class="team-card reveal delay-2">
-        <img class="team-card-img" src="../assets/images/george.jpeg" alt="George Tadros">
+        <div class="team-card-img-wrap"><img class="team-card-img" src="../assets/images/george.jpeg" alt="George Tadros"></div>
         <div class="team-card-body">
           <h3>George Tadros</h3>
           <div class="role">Community Outreach and Digital Engagement Lead</div>
@@ -226,7 +235,7 @@
       </div>
 
       <div class="team-card reveal delay-3">
-        <img class="team-card-img" src="../assets/images/Joanna.jpg" alt="Dr. Joanna Dionne">
+        <div class="team-card-img-wrap"><img class="team-card-img" src="../assets/images/Joanna.jpg" alt="Dr. Joanna Dionne"></div>
         <div class="team-card-body">
           <h3>Dr. Joanna Dionne, MD FRCPC</h3>
           <div class="role">Creative Partner for Social Media</div>
@@ -235,7 +244,7 @@
       </div>
 
       <div class="team-card reveal delay-4">
-        <img class="team-card-img" src="../assets/images/julia.jpg" alt="Julia Johnston">
+        <div class="team-card-img-wrap"><img class="team-card-img" src="../assets/images/julia.jpg" alt="Julia Johnston"></div>
         <div class="team-card-body">
           <h3>Julia Johnston</h3>
           <div class="role">Administrative Staff</div>
