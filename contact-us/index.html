@@ -29,10 +29,12 @@
 
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--text);overflow-x:hidden;padding-top:var(--nav-h)}
+body{position:static!important;top:0!important;}
 
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
+  transform:translateZ(0);
   height:var(--nav-h);
   background:rgba(30,135,53,0.97);
   backdrop-filter:blur(12px);
