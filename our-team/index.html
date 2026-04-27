@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Our Team – Liver Health Connect</title>
+  <link rel="stylesheet" href="../shared.css">
+  <style>
+    body { padding-top: var(--nav-h); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 4rem 2rem 3.5rem;
+      background: linear-gradient(130deg, var(--green) 0%, var(--orange) 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(255,193,7,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .breadcrumb {
+      font-size: 0.78rem; color: rgba(255,255,255,0.7);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .page-hero .breadcrumb a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+    .page-hero .breadcrumb a:hover { color: #fff; }
+    .page-hero .breadcrumb span { opacity: 0.5; }
+    .page-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.9rem,4vw,3rem); font-weight: 600; line-height: 1.2; position: relative; }
+    .page-hero .subtitle { margin-top: 0.8rem; font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.8); max-width: 600px; line-height: 1.6; position: relative; }
+
+    /* ── LAYOUT ── */
+    .page-content { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+
+    /* ── FOUNDER BLOCK ── */
+    .founder-block {
+      background: linear-gradient(135deg, var(--green) 0%, var(--orange) 100%);
+      border-radius: 20px; padding: 3rem;
+      display: grid; grid-template-columns: 240px 1fr;
+      gap: 2.5rem; align-items: center;
+      margin-bottom: 4rem;
+      box-shadow: 0 8px 40px rgba(30,135,53,0.2);
+      position: relative; overflow: hidden;
+    }
+    .founder-block::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: rgba(255,193,7,0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .founder-img-wrap {
+      position: relative;
+    }
+    .founder-img-wrap img {
+      width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; object-position: top;
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      display: block;
+    }
+    .founder-img-placeholder {
+      width: 100%; aspect-ratio: 3/4;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5); font-size: 0.8rem;
+      border: 2px dashed rgba(255,255,255,0.3);
+    }
+    .founder-badge {
+      display: inline-block;
+      background: rgba(255,193,7,0.25);
+      border: 1px solid rgba(255,193,7,0.5);
+      color: var(--gold);
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 20px;
+      margin-bottom: 0.8rem;
+    }
+    .founder-text h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 600; color: #fff; margin-bottom: 0.3rem; line-height: 1.2;
+    }
+    .founder-text .role {
+      font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.4rem;
+    }
+    .founder-text p {
+      font-size: 0.97rem; line-height: 1.8;
+      color: rgba(255,255,255,0.88); font-weight: 300;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--orange-w); margin-bottom: 0.6rem; display: block;
+    }
+    .section-heading {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      color: var(--green); margin-bottom: 2rem;
+    }
+
+    /* ── TEAM GRID ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.6rem;
+      margin-bottom: 4rem;
+    }
+    .team-card {
+      background: #fff; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 2px 16px rgba(30,135,53,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(30,135,53,0.15);
+    }
+    .team-card-img {
+      width: 100%; height: 260px;
+      object-fit: cover; object-position: top;
+      display: block;
+    }
+    .team-card-img-placeholder {
+      width: 100%; height: 260px;
+      background: linear-gradient(135deg, var(--cream) 0%, #d8dbc8 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 0.5rem;
+    }
+    .team-card-img-placeholder svg {
+      opacity: 0.3;
+    }
+    .team-card-img-placeholder span {
+      font-size: 0.72rem; color: var(--text-l); letter-spacing: 0.05em;
+    }
+    .team-card-body {
+      padding: 1.5rem 1.6rem 1.8rem;
+      display: flex; flex-direction: column; flex: 1;
+      border-top: 3px solid var(--orange);
+    }
+    .team-card-body h3 {
+      font-family: 'Lora', serif; font-size: 1.1rem;
+      color: var(--green); margin-bottom: 0.2rem; line-height: 1.3;
+    }
+    .team-card-body .role {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--orange-w); margin-bottom: 1rem;
+    }
+    .team-card-body p {
+      font-size: 0.88rem; line-height: 1.75;
+      color: var(--text-m); font-weight: 300; flex: 1;
+    }
+
+    /* ── VOLUNTEER GRID (smaller cards, no photo) ── */
+    .volunteer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.4rem;
+      margin-bottom: 4rem;
+    }
+    .volunteer-card {
+      background: #fff; border-radius: 14px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 12px rgba(30,135,53,0.07);
+      border-left: 4px solid var(--green);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .volunteer-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(30,135,53,0.13);
+    }
+    .volunteer-card .avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-m) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 600;
+      color: #fff; margin-bottom: 1rem; flex-shrink: 0;
+    }
+    .volunteer-card h3 {
+      font-family: 'Lora', serif; font-size: 1.05rem;
+      color: var(--green); margin-bottom: 0.2rem;
+    }
+    .volunteer-card .role {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--orange-w); margin-bottom: 0.9rem;
+    }
+    .volunteer-card p {
+      font-size: 0.88rem; line-height: 1.75;
+      color: var(--text-m); font-weight: 300;
+    }
+
+    /* ── CTA ── */
+    .team-cta {
+      background: var(--cream);
+      border-radius: 16px; padding: 2.5rem 2.8rem;
+      text-align: center;
+    }
+    .team-cta h2 {
+      font-family: 'Lora', serif; font-size: 1.5rem;
+      color: var(--green); margin-bottom: 0.6rem;
+    }
+    .team-cta p {
+      font-size: 0.95rem; color: var(--text-m); font-weight: 300;
+      margin-bottom: 1.4rem; max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 700px) {
+      .founder-block { grid-template-columns: 1fr; text-align: center; }
+      .founder-img-wrap { max-width: 220px; margin: 0 auto; }
+      .founder-img-wrap img, .founder-img-placeholder { aspect-ratio: 1/1; }
+    }
+    @media(max-width: 640px) {
+      .page-content { padding: 2.5rem 1.2rem 4rem; }
+      .founder-block { padding: 2rem 1.5rem; }
+      .team-grid, .volunteer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="https://gstadros.github.io/LHC-website-english/index.html">Home</a>
+      <span>›</span>
+      <span>Our Team</span>
+    </div>
+    <h1>Our Team</h1>
+    <p class="subtitle">The dedicated people behind Liver Health Connect — working together to bring liver health education to our community.</p>
+  </div>
+
+  <div class="page-content">
+
+    <!-- ── FOUNDER ── -->
+    <div class="founder-block reveal">
+      <div class="founder-img-wrap">
+        <!-- Replace src with actual photo when available -->
+        <img src="../assets/images/henry.png" alt="Dr. Henry Nguyen">
+      </div>
+      <div class="founder-text">
+        <div class="founder-badge">Founder</div>
+        <h2>Dr. Henry Nguyen, MD FRCPC</h2>
+        <div class="role">Founder &amp; Community Lead</div>
+        <p>Henry Nguyen is a hepatologist at the University of Calgary and the founder of Liver Health Connect. Born and raised in Calgary, he is dedicated to advancing liver health through equitable access to education and resources, in service of the well-being of all members of the community he calls home.</p>
+      </div>
+    </div>
+
+    <!-- ── CORE TEAM ── -->
+    <span class="section-label reveal">Core Team</span>
+    <h2 class="section-heading reveal">Meet the People Behind LHC</h2>
+
+    <div class="team-grid">
+
+      <div class="team-card reveal delay-1">
+        <img class="team-card-img" src="../assets/images/kim.jpeg" alt="Dr. Kim Cheema">
+        <div class="team-card-body">
+          <h3>Dr. Kim Cheema, MD FRCPC</h3>
+          <div class="role">Community Partnerships and Research Liaison</div>
+          <p>Dr. Cheema is a nephrologist who volunteers with Liver Health Connect. She previously served as Site Lead at the AHS Richmond Road Diagnostic Centre, where she worked across many specialties to support patient services. At LHC, she helps guide partnerships with universities, health organizations, and community groups, ensuring they reflect and strengthen LHC's mission of education, equity, and service.</p>
+        </div>
+      </div>
+
+      <div class="team-card reveal delay-2">
+        <img class="team-card-img" src="../assets/images/george.jpeg" alt="George Tadros">
+        <div class="team-card-body">
+          <h3>George Tadros</h3>
+          <div class="role">Community Outreach and Digital Engagement Lead</div>
+          <p>George Tadros is currently enrolled at the University of Calgary Cumming School of Medicine. George plays a crucial role in connecting with our communities and managing our digital presence. His dedication to developing social media accounts, maintaining our website, and building outreach bridges helps ensure that Liver Health Connect's message reaches and resonates widely. We deeply appreciate his energy and creativity in driving our engagement efforts.</p>
+        </div>
+      </div>
+
+      <div class="team-card reveal delay-3">
+        <img class="team-card-img" src="../assets/images/Joanna.jpg" alt="Dr. Joanna Dionne">
+        <div class="team-card-body">
+          <h3>Dr. Joanna Dionne, MD FRCPC</h3>
+          <div class="role">Creative Partner for Social Media</div>
+          <p>Joanna is an Intensive Care Physician from McMaster University. Joanna's visionary input has been instrumental in shaping our social media campaigns. As a Creative Partner, her fresh ideas and thoughtful suggestions have helped bring new energy and focus to our outreach efforts. We are grateful for her inspiring collaboration and invaluable contributions.</p>
+        </div>
+      </div>
+
+      <div class="team-card reveal delay-4">
+        <img class="team-card-img" src="../assets/images/julia.jpg" alt="Julia Johnston">
+        <div class="team-card-body">
+          <h3>Julia Johnston</h3>
+          <div class="role">Administrative Staff</div>
+          <p>Julia plays an essential role behind the scenes by organizing meetings with community leaders, coordinating logistics, and helping procure important resources for our outreach events. Her dedication and organizational skills keep Liver Health Connect running smoothly and connected to the community. We truly appreciate her invaluable support.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── VOLUNTEERS & PARTNERS ── -->
+    <span class="section-label reveal">Volunteers &amp; Partners</span>
+    <h2 class="section-heading reveal">Also Contributing to Our Mission</h2>
+
+    <div class="volunteer-grid">
+
+      <div class="volunteer-card reveal delay-1">
+        <div class="avatar">JN</div>
+        <h3>Jimmie Nguyen</h3>
+        <div class="role">Logistics Lead</div>
+        <p>Jimmie is an Environmental Scientist with expertise in technical project coordination across Western Canada. At LHC, he applies his strong organizational skills and experience to lead event logistics, ensuring our outreach efforts are efficient and well-executed.</p>
+      </div>
+
+      <div class="volunteer-card reveal delay-2">
+        <div class="avatar">VA</div>
+        <h3>Virve Aljas</h3>
+        <div class="role">Patient Partner &amp; Visual Branding Support</div>
+        <p>Virve, as a patient partner, has generously lent her creative talents to digitize our logo and design materials for our outreach tents. Her hands-on support has been key in bringing our visual identity to life and strengthening our community presence. We deeply appreciate her meaningful partnership.</p>
+      </div>
+
+    </div>
+
+    <!-- ── CTA ── -->
+    <div class="team-cta reveal">
+      <h2>Want to get involved?</h2>
+      <p>We're always looking for passionate individuals to join our mission of liver health education and community outreach.</p>
+      <a href="https://gstadros.github.io/LHC-website-english/contact-us/index.html" class="btn btn-primary">Contact Us</a>
+    </div>
+
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  </script>
+
+  <script src="../components.js"></script>
+
+</body>
+</html>
