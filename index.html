@@ -1,216 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Contact Us – Liver Health Connect</title>
-  <link rel="stylesheet" href="../shared.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liver Health Connect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./shared.css">
   <style>
-    /* ── PAGE LAYOUT ── */
-    body { padding-top: var(--nav-h); }
-    .page-content{max-width:860px;margin:0 auto;padding:4rem 2rem 5rem}
-    .page-content-wide{max-width:1100px;margin:0 auto;padding:4rem 2rem 5rem}
-
-    /* ── PAGE HERO ── */
-    .page-hero{
-      margin-top:0; padding:4rem 2rem 3.5rem;
-      background:linear-gradient(130deg,var(--green) 0%,var(--orange) 100%);
-      color:#fff; position:relative; overflow:hidden;
+    /* ── LAYOUT ── */
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--orange-warm); margin-bottom: 0.8rem;
     }
-    .page-hero::after{
-      content:'';position:absolute;inset:0;
-      background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(255,193,7,0.12) 0%,transparent 70%);
-      pointer-events:none;
+    section { padding: 6rem 2rem; }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top: var(--nav-h);
+      position: relative; height: 86vh; min-height: 520px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
     }
-    .page-hero .breadcrumb{font-size:0.78rem;color:rgba(255,255,255,0.7);margin-bottom:1rem;display:flex;align-items:center;gap:0.4rem;}
-    .page-hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;transition:color 0.2s}
-    .page-hero .breadcrumb a:hover{color:#fff}
-    .page-hero .breadcrumb span{opacity:0.5}
-    .page-hero h1{font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:600;line-height:1.2;max-width:700px;position:relative}
-    .page-hero .subtitle{margin-top:0.8rem;font-size:1rem;font-weight:300;color:rgba(255,255,255,0.8);max-width:640px;line-height:1.6;position:relative}
-
-    /* ── SECTION BLOCKS ── */
-    .section-block{
-      background:#fff;border-radius:14px;padding:2.2rem 2.4rem;margin-bottom:1.6rem;
-      box-shadow:0 2px 12px rgba(30,135,53,0.06);border-left:4px solid var(--orange);
-      transition:box-shadow 0.3s,transform 0.3s;
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(160deg, rgba(30,135,53,0.82) 0%, rgba(224,95,26,0.45) 65%, transparent 100%),
+        url('https://lh3.googleusercontent.com/sitesv/AA5AbUBNN-lvb2PbdLzlfOzQomAZdFzr2qHrq4gTHPRgKHAfgNQCazTjt7M6pn3iZJewZYZ0xEbiJVpxtqFwekzcMX_rVivGa3_xv0U7d7aUFKenXBRQLEQLdGxWsg09emqdkJbRuj0ijN60oVJjQeMZL7xSZXV-hQ8BOZajTkU06jaN4ax9Xic_uCJ-oPFE57Z9jjvR159pI860Q-2qxkldj_Xy8UoXpMn1i6t2=w1280') center/cover no-repeat;
+      transform: scale(1.04); animation: heroZoom 18s ease-in-out infinite alternate;
     }
-    .section-block:hover{box-shadow:0 6px 24px rgba(30,135,53,0.12);transform:translateY(-2px)}
-    .section-block h2{font-family:'Lora',serif;font-size:1.35rem;color:var(--green);margin-bottom:1rem;line-height:1.3;}
-    .section-block h3{font-size:1rem;font-weight:600;color:var(--text);margin:1rem 0 0.4rem}
-    .section-block p{font-size:0.96rem;line-height:1.78;color:var(--text-m);font-weight:300;margin-bottom:0.8rem}
-    .section-block p:last-child{margin-bottom:0}
-    .section-block ol,.section-block ul{padding-left:1.4rem;margin-top:0.5rem}
-    .section-block li{font-size:0.95rem;line-height:1.7;color:var(--text-m);font-weight:300;margin-bottom:0.3rem}
-    .section-block a{color:var(--green);font-weight:500;transition:color 0.2s}
-    .section-block a:hover{color:var(--orange)}
-    .section-block .tag{display:inline-block;font-size:0.68rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange-w);margin-bottom:0.5rem}
-    .intro-block{background:var(--cream);border-radius:14px;padding:2.2rem 2.4rem;margin-bottom:2rem;border-left:4px solid var(--green);}
-    .intro-block p{font-size:1rem;line-height:1.8;color:var(--text-m);font-weight:300;margin-bottom:0.7rem}
-    .intro-block p:last-child{margin-bottom:0}
-    .page-section-label{font-size:0.72rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange-w);margin-bottom:0.5rem;display:block}
-    .page-h2{font-family:'Lora',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);color:var(--green);margin-bottom:1.4rem}
+    @keyframes heroZoom { from{transform:scale(1.04)} to{transform:scale(1.0)} }
+    .hero-particles { position: absolute; inset: 0; pointer-events: none; }
+    .particle { position: absolute; border-radius: 50%; background: rgba(255,193,7,0.15); animation: float linear infinite; }
+    @keyframes float {
+      0%{transform:translateY(100vh) scale(0);opacity:0} 10%{opacity:1}
+      90%{opacity:0.6} 100%{transform:translateY(-10vh) scale(1);opacity:0}
+    }
+    .hero-content {
+      position: relative; z-index: 2; text-align: center; color: #fff;
+      padding: 0 1.5rem; animation: heroFadeUp 1s ease 0.2s both;
+    }
+    @keyframes heroFadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:none} }
+    .hero-title-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1.4rem; margin-bottom: 1.4rem; flex-wrap: wrap;
+    }
+    .hero-logo { height: 145px; width: auto; display: block; flex-shrink: 0; }
+    .hero-divider { color: rgba(255,193,7,0.7); font-size: 5rem; font-weight: 100; line-height: 1; flex-shrink: 0; }
+    .hero-title-row h1 {
+      font-family: 'Lora', serif; font-size: clamp(2rem,4.5vw,3.4rem);
+      font-weight: 600; line-height: 1.2; text-align: left; margin: 0; max-width: 480px;
+    }
+    .hero p { font-size: clamp(1rem,2vw,1.2rem); font-weight: 300; color: rgba(255,255,255,0.82); max-width: 560px; margin: 0 auto 2.2rem; line-height: 1.65; }
+    .hero-cta { display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .scroll-hint {
+      position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.55); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      animation: hintFade 2s ease 1.5s both;
+    }
+    @keyframes hintFade { from{opacity:0} to{opacity:1} }
+    .scroll-hint .arrow {
+      width: 1px; height: 36px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: arrowPulse 1.8s ease-in-out infinite;
+    }
+    @keyframes arrowPulse { 0%,100%{transform:scaleY(1);opacity:0.6} 50%{transform:scaleY(1.3);opacity:1} }
 
-    /* ── HIGHLIGHT BOX ── */
-    .highlight-box{background:linear-gradient(135deg,var(--green) 0%,var(--green-m) 100%);color:#fff;border-radius:14px;padding:2rem 2.4rem;margin:2rem 0;}
-    .highlight-box h3{font-family:'Lora',serif;font-size:1.2rem;margin-bottom:0.7rem}
-    .highlight-box p{font-size:0.94rem;line-height:1.75;color:rgba(255,255,255,0.85);font-weight:300;margin-bottom:0.5rem}
-    .highlight-box p:last-child{margin-bottom:0}
-    .highlight-box a{color:var(--gold);font-weight:500}
+    /* ── VISION / MISSION / STORY ── */
+    .vms { background: #fff; position: relative; overflow: hidden; }
+    .vms::before {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 440px; height: 440px;
+      background: radial-gradient(circle, var(--cream) 0%, transparent 70%);
+      transform: translate(30%,-30%); pointer-events: none;
+    }
+    .vms-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 3rem; }
+    .vms-item h2 {
+      font-family: 'Lora', serif; font-size: 1.65rem; font-weight: 600;
+      color: var(--green-deep); margin-bottom: 1rem; position: relative; padding-bottom: 0.8rem;
+    }
+    .vms-item h2::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 36px; height: 2px; background: var(--orange); border-radius: 2px; transition: width 0.4s ease;
+    }
+    .vms-item:hover h2::after { width: 60px; }
+    .vms-item p { font-size: 0.97rem; line-height: 1.75; color: var(--text-mid); font-weight: 300; }
 
-    /* ── CONTACT ── */
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.5rem}
-    .contact-card{background:#fff;border-radius:14px;padding:2rem;text-align:center;box-shadow:0 2px 12px rgba(30,135,53,0.07);border-top:3px solid var(--orange);transition:transform 0.25s;}
-    .contact-card:hover{transform:translateY(-3px)}
-    .contact-card .icon{font-size:2rem;margin-bottom:0.8rem}
-    .contact-card h3{font-family:'Lora',serif;font-size:1.1rem;color:var(--green);margin-bottom:0.5rem}
-    .contact-card a{display:inline-block;margin-top:0.8rem;padding:0.6rem 1.4rem;border-radius:8px;font-size:0.85rem;font-weight:600;background:var(--green);color:#fff;text-decoration:none;transition:background 0.2s,transform 0.2s}
-    .contact-card a:hover{background:var(--orange);transform:translateY(-1px)}
+    /* ── CARDS ── */
+    .cards-section { background: var(--cream); }
+    .cards-section h2 { font-family: 'Lora',serif; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--green-deep); margin-bottom: 0.6rem; }
+    .cards-section > .container > p { color: var(--text-mid); font-weight: 300; margin-bottom: 3rem; font-size: 1rem; max-width: 580px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 1.4rem; }
+    .card {
+      border-radius: 14px; overflow: hidden; background: #fff; text-decoration: none;
+      box-shadow: 0 2px 12px rgba(26,74,58,0.07);
+      transition: transform 0.35s cubic-bezier(0.25,0.8,0.25,1), box-shadow 0.35s; display: block;
+    }
+    .card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 16px 40px rgba(26,74,58,0.16); }
+    .card-img { width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .card:hover .card-img { transform: scale(1.05); }
+    .card-body { padding: 1.2rem 1.4rem 1.5rem; }
+    .card-body span { font-family: 'Lora',serif; font-size: 1.1rem; font-weight: 600; color: var(--green-deep); display: flex; align-items: center; gap: 0.5rem; }
+    .card-body span::after { content: '→'; font-family: sans-serif; color: var(--orange); transition: transform 0.25s; }
+    .card:hover .card-body span::after { transform: translateX(4px); }
 
-    /* ── OTHER SUBPAGE COMPONENTS ── */
-    .threshold-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
-    .threshold-card{background:var(--cream);border-radius:10px;padding:1.2rem 1.4rem;text-align:center}
-    .threshold-card .number{font-family:'Lora',serif;font-size:2rem;color:var(--green);font-weight:600}
-    .threshold-card .label{font-size:0.82rem;color:var(--text-m);font-weight:400;margin-top:0.3rem}
-    .disease-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin-top:2rem}
-    .disease-card{background:#fff;border-radius:14px;padding:1.8rem;box-shadow:0 2px 12px rgba(30,135,53,0.07);text-decoration:none;display:block;border-top:3px solid var(--orange);transition:transform 0.3s,box-shadow 0.3s;}
-    .disease-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(30,135,53,0.14)}
-    .disease-card h3{font-family:'Lora',serif;font-size:1.1rem;color:var(--green);margin-bottom:0.6rem;display:flex;align-items:center;justify-content:space-between}
-    .disease-card h3 span.arrow{color:var(--orange);transition:transform 0.25s;font-family:sans-serif}
-    .disease-card:hover h3 span.arrow{transform:translateX(4px)}
-    .disease-card p{font-size:0.87rem;line-height:1.65;color:var(--text-m);font-weight:300}
-    .event-block{background:#fff;border-radius:14px;padding:0;box-shadow:0 2px 12px rgba(30,135,53,0.07);overflow:hidden;margin-bottom:1.6rem;}
-    .event-block img{width:100%;max-height:320px;object-fit:cover;display:block}
-    .event-body{padding:1.8rem 2rem}
-    .event-body h2{font-family:'Lora',serif;font-size:1.3rem;color:var(--green);margin-bottom:0.3rem}
-    .event-body .date{font-size:0.8rem;color:var(--orange-w);font-weight:600;letter-spacing:0.08em;margin-bottom:0.8rem;text-transform:uppercase}
-    .event-body p{font-size:0.93rem;line-height:1.7;color:var(--text-m);font-weight:300}
-    .event-body a.btn-sm{display:inline-block;margin-top:0.8rem;padding:0.45rem 1rem;border-radius:6px;font-size:0.8rem;font-weight:600;background:var(--green);color:#fff;text-decoration:none;transition:background 0.2s,transform 0.2s}
-    .event-body a.btn-sm:hover{background:var(--orange);transform:translateY(-1px)}
-    .upcoming-banner{background:linear-gradient(135deg,var(--gold) 0%,var(--orange-w) 100%);border-radius:14px;padding:2rem 2.4rem;text-align:center;margin-bottom:2rem;color:var(--black);}
-    .upcoming-banner h2{font-family:'Lora',serif;font-size:1.4rem;margin-bottom:0.5rem}
-    .upcoming-banner p{font-size:0.93rem;font-weight:400;color:rgba(0,0,0,0.7)}
-    .partners-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;margin-top:1.5rem}
-    .partner-card{background:#fff;border-radius:12px;padding:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(30,135,53,0.07);min-height:120px;transition:transform 0.25s,box-shadow 0.25s;}
-    .partner-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(30,135,53,0.12)}
-    .partner-card img{max-width:100%;max-height:80px;object-fit:contain}
-    .partner-text{font-family:'Lora',serif;font-size:1rem;color:var(--green);font-weight:600;text-align:center}
-    .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.4rem;margin-top:1.5rem}
-    .team-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(30,135,53,0.07);transition:transform 0.3s,box-shadow 0.3s;}
-    .team-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(30,135,53,0.13)}
-    .team-card img{width:100%;height:220px;object-fit:cover;object-position:top;display:block}
-    .team-card-body{padding:1.4rem}
-    .team-card-body h3{font-family:'Lora',serif;font-size:1.05rem;color:var(--green);margin-bottom:0.2rem}
-    .team-card-body .role{font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-w);margin-bottom:0.8rem}
-    .team-card-body p{font-size:0.86rem;line-height:1.7;color:var(--text-m);font-weight:300}
-    .founder-block{background:linear-gradient(135deg,var(--green) 0%,var(--orange) 100%);border-radius:16px;padding:2.4rem;color:#fff;display:grid;grid-template-columns:200px 1fr;gap:2rem;align-items:center;margin-top:2rem;}
-    .founder-block img{width:100%;border-radius:12px;object-fit:cover;object-position:top;height:200px}
-    .founder-block h2{font-family:'Lora',serif;font-size:1.5rem;margin-bottom:0.3rem}
-    .founder-block .role{font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .founder-block p{font-size:0.93rem;line-height:1.75;color:rgba(255,255,255,0.85);font-weight:300}
-    .checklist{list-style:none;padding:0;margin:1rem 0}
-    .checklist li{display:flex;gap:0.8rem;align-items:flex-start;padding:0.7rem 0;border-bottom:1px solid rgba(30,135,53,0.08);font-size:0.93rem;color:var(--text-m);font-weight:300;line-height:1.55}
-    .checklist li:last-child{border-bottom:none}
-    .checklist li::before{content:'☐';font-size:1rem;color:var(--green);flex-shrink:0;margin-top:0.05em}
-    .steps{counter-reset:steps}
-    .step{display:flex;gap:1.2rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid rgba(30,135,53,0.08);counter-increment:steps;}
-    .step:last-child{border-bottom:none}
-    .step::before{content:counter(steps);min-width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:600;flex-shrink:0;margin-top:0.1em;}
-    .step p{font-size:0.93rem;line-height:1.7;color:var(--text-m);font-weight:300;margin:0}
-    .step p strong{color:var(--text);font-weight:600}
-    .diet-comparison{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
-    .diet-col{background:var(--offwhite);border-radius:10px;padding:1.2rem}
-    .diet-col h4{font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-w);margin-bottom:0.7rem}
-    .diet-col ul{list-style:none;padding:0}
-    .diet-col ul li{font-size:0.87rem;line-height:1.6;color:var(--text-m);font-weight:300;padding:0.25rem 0;border-bottom:1px solid rgba(0,0,0,0.05)}
-    .diet-col ul li:last-child{border-bottom:none}
-    .pathway-step{display:grid;grid-template-columns:60px 1fr;gap:1.5rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid rgba(30,135,53,0.1);}
-    .pathway-step:last-child{border-bottom:none}
-    .step-num{width:52px;height:52px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:1.3rem;font-weight:600;flex-shrink:0;}
-    .step-content h3{font-family:'Lora',serif;font-size:1.1rem;color:var(--green);margin-bottom:0.5rem}
-    .step-content p{font-size:0.93rem;line-height:1.7;color:var(--text-m);font-weight:300;margin-bottom:0.5rem}
-    .step-content ul{padding-left:1.2rem;margin-top:0.3rem}
-    .step-content ul li{font-size:0.9rem;line-height:1.65;color:var(--text-m);font-weight:300;margin-bottom:0.2rem}
-    .step-content a{color:var(--green);font-weight:500}
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: linear-gradient(135deg,#1e8735 0%,#e05f1a 100%);
+      color: #fff; text-align: center; padding: 5rem 2rem; position: relative; overflow: hidden;
+    }
+    .cta-strip::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 110%,rgba(255,193,7,0.15) 0%,transparent 70%);
+    }
+    .cta-strip h2 { font-family: 'Lora',serif; font-size: clamp(1.7rem,3.5vw,2.5rem); margin-bottom: 0.8rem; position: relative; }
+    .cta-strip p { font-weight: 300; font-size: 1rem; color: rgba(255,255,255,0.75); margin-bottom: 2rem; position: relative; }
+    .cta-strip .btn-primary { position: relative; box-shadow: 0 4px 20px rgba(255,193,7,0.45); }
+
+    /* ── SURVEY ── */
+    .survey-section { background: #fff; text-align: center; padding: 5rem 2rem; }
+    .survey-section h2 { font-family: 'Lora',serif; font-size: clamp(1.5rem,3vw,2rem); color: var(--green-deep); margin-bottom: 0.8rem; }
+    .survey-section p { color: var(--text-mid); font-weight: 300; margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
 
     @media(max-width:640px){
-      .contact-grid,.diet-comparison,.threshold-grid{grid-template-columns:1fr}
-      .founder-block{grid-template-columns:1fr;text-align:center}
-      .page-content,.page-content-wide{padding:2.5rem 1.2rem 4rem}
-      .section-block{padding:1.5rem 1.4rem}
-    }
-    @media(max-width:500px){
-      .team-grid{grid-template-columns:1fr}
-      .disease-grid{grid-template-columns:1fr}
+      section { padding: 4rem 1.2rem; }
+      .cards-grid { grid-template-columns: 1fr; }
     }
 </style>
-  
-
-  </head>
+</head>
 <body>
 
+  <!-- NAV: loaded by components.js -->
   <div id="nav-placeholder"></div>
 
-  <div class="page-hero">
-    <div class="breadcrumb"><a href="../index.html">Home</a> <span>›</span> <span>Contact Us</span></div>
-    <h1>Contact Us</h1>
-    <p class="subtitle">We'd love to hear from you.</p>
-  </div>
-  <div class="page-content">
-
-    <div class="contact-grid reveal">
-      <div class="contact-card">
-        <div class="icon">✉️</div>
-        <h3>Email Us</h3>
-        <p>Send us a message and we'll get back to you as soon as possible.</p>
-        <a href="mailto:info@liverhealthconnect.com">info@liverhealthconnect.com</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-title-row">
+        <img src="./assets/images/logo.png" alt="LHC Logo" class="hero-logo">
+        <span class="hero-divider">|</span>
+        <h1>Connecting Community and Liver Care</h1>
       </div>
-      <div class="contact-card">
-        <div class="icon">👥</div>
-        <h3>Our Team</h3>
-        <p>Learn more about the people behind Liver Health Connect.</p>
-        <a href="../our-team/index.html">Meet the Team</a>
+      <p>Sharing knowledge, supporting prevention, and helping people take charge of their liver health — in ways that are accessible, respectful, and collaborative.</p>
+      <div class="hero-cta">
+        <a href="https://www.liverhealthconnect.com/liver-health-basics" class="btn btn-primary">Liver Health Basics</a>
+        <a href="https://www.liverhealthconnect.com/community-events-outreach" class="btn btn-ghost">Upcoming Events</a>
       </div>
     </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
 
-    <div class="section-block reveal delay-2" style="text-align:center; padding: 3rem 2.4rem 3.5rem;">
-      <span class="tag">Social Media</span>
-      <h2 style="margin: 0.8rem 0 2rem;">Connect with us on Social Media</h2>
-      <div style="display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap">
-        <a href="https://www.facebook.com/profile.php?id=61575111156885" target="_blank" rel="noopener" class="btn" style="display:flex;align-items:center;gap:0.5rem;background:#1877F2;color:#fff;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          Facebook
+  <!-- VISION / MISSION / STORY -->
+  <section class="vms">
+    <div class="container">
+      <div class="section-label reveal">Who We Are</div>
+      <div class="vms-grid">
+        <div class="vms-item reveal delay-1">
+          <h2>Our Vision</h2>
+          <p>To bridge liver health knowledge and the communities we serve: sharing information, supporting prevention, and encouraging care in ways that are accessible, respectful, and collaborative.</p>
+        </div>
+        <div class="vms-item reveal delay-2">
+          <h2>Our Mission</h2>
+          <p>We work alongside communities to share liver health education in practical, relatable ways — building connections, supporting prevention, and helping people take charge of their liver health through collaboration, trust, and outreach.</p>
+        </div>
+        <div class="vms-item reveal delay-3">
+          <h2>Our Story</h2>
+          <p>Founded in 2025 by a liver specialist with deep roots in Calgary and a strong connection to its vibrant cultural communities, Liver Health Connect was launched to improve access, spark conversation, and deliver liver health education in ways that are engaging, inclusive, and culturally meaningful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <section class="cards-section">
+    <div class="container">
+      <div class="section-label reveal">Explore</div>
+      <h2 class="reveal">Everything You Need to Know</h2>
+      <p class="reveal">Dive into our resources — from understanding liver conditions to finding care near you.</p>
+      <div class="cards-grid">
+        <a href="https://www.liverhealthconnect.com/liver-health-basics" class="card reveal delay-1">
+          <img class="card-img" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="Liver Health Basics" loading="lazy">
+          <div class="card-body"><span>Liver Health Basics</span></div>
         </a>
-        <a href="https://www.instagram.com/liver_health_connect/" target="_blank" rel="noopener" class="btn" style="display:flex;align-items:center;gap:0.5rem;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;border:none;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          Instagram
+        <a href="https://www.liverhealthconnect.com/pathways-to-care" class="card reveal delay-2">
+          <img class="card-img" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&q=80" alt="Pathways to Care" loading="lazy">
+          <div class="card-body"><span>Pathways to Care</span></div>
+        </a>
+        <a href="https://www.liverhealthconnect.com/our-team" class="card reveal delay-3">
+          <img class="card-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Our Team" loading="lazy">
+          <div class="card-body"><span>Meet Our Team</span></div>
+        </a>
+        <a href="https://www.liverhealthconnect.com/diet-and-liver-health" class="card reveal delay-4">
+          <img class="card-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80" alt="Diet and Liver Health" loading="lazy">
+          <div class="card-body"><span>Diet &amp; Liver Health</span></div>
+        </a>
+        <a href="https://www.liverhealthconnect.com/pathways-to-care" class="card reveal delay-5">
+          <img class="card-img" src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80" alt="Community Resources" loading="lazy">
+          <div class="card-body"><span>Community Resources</span></div>
         </a>
       </div>
     </div>
+  </section>
 
-    <div class="highlight-box reveal delay-3">
-      <h3>Tell us what topics you would like to learn about!</h3>
-      <p>Please let us know via the anonymous form below. We read every submission and use your feedback to guide our content!</p>
-      <a href="https://form.jotform.com/251561557744261" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:0.5rem;color:var(--black);">Open Anonymous Form</a>
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2 class="reveal">Want to learn more?</h2>
+      <p class="reveal delay-1">Read through our <a href="liver-health-basics/index.html" style="color:var(--gold);font-weight:600;text-decoration:underline;text-underline-offset:3px;">Liver Health Basics</a> page or come to one of our many events and learn more about liver health and prevention!</p>
+      <div class="reveal delay-2">
+        <a href="https://www.liverhealthconnect.com/community-events-outreach" class="btn btn-primary">View Events</a>
+      </div>
     </div>
+  </section>
 
-  </div>
+  <!-- SURVEY -->
+  <section class="survey-section">
+    <div class="container">
+      <h2 class="reveal">Had a chance to browse our website?</h2>
+      <p class="reveal delay-1">Please take a minute to complete our brief survey to let us know what you think about our content!</p>
+      <a href="https://survey.ucalgary.ca/jfe/form/SV_9Qsb4rSYc4rT9oq" class="btn btn-outline reveal delay-2" target="_blank" rel="noopener">Take the Survey</a>
+    </div>
+  </section>
 
+  <!-- FOOTER: loaded by components.js -->
   <div id="footer-placeholder"></div>
+
+  <script src="./components.js"></script>
   <script>
-// ── SCROLL REVEAL
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-revealEls.forEach(el => io.observe(el));
+    // ── Floating Particles
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 60 + 20;
+      p.style.cssText = `
+        width: ${size}px; height: ${size}px;
+        left: ${Math.random() * 100}%;
+        animation-duration: ${Math.random() * 20 + 14}s;
+        animation-delay: ${Math.random() * -25}s;
+      `;
+      container.appendChild(p);
+    }
 
-
-</script>
-
-<script src="../components.js"></script>
-
+    // ── Scroll Reveal (runs on page content; nav/footer reveal handled by components.js)
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
