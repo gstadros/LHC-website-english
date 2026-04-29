@@ -370,29 +370,73 @@
     }
     .recipe-body a.recipe-link:hover { color: var(--orange); border-color: var(--orange); }
 
-    /* ── HOLIDAY TIPS ── */
+    /* ── HOLIDAY / CHRISTMAS ── */
     .holiday-section { margin-bottom: 5rem; }
-    .holiday-section h2 {
-      font-family: 'Lora', serif; font-size: clamp(1.4rem,2.5vw,1.9rem);
-      color: var(--green); margin-bottom: 0.6rem;
+    .holiday-hero {
+      border-radius: 20px; overflow: hidden;
+      margin-bottom: 2.5rem; position: relative; height: 340px;
+      background:
+        linear-gradient(160deg, rgba(139,0,0,0.82) 0%, rgba(20,80,20,0.75) 100%),
+        url('https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=1400&q=80') center/cover no-repeat;
+      display: flex; align-items: center;
     }
-    .holiday-section > p {
-      font-size: 1rem; line-height: 1.78; color: var(--text-m); font-weight: 300;
-      max-width: 800px; margin-bottom: 2rem;
+    .holiday-hero-content {
+      padding: 3rem; z-index: 2; position: relative;
     }
+    .holiday-hero-content .christmas-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,193,7,0.2); border: 1px solid rgba(255,193,7,0.5);
+      color: var(--gold); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1rem;
+    }
+    .holiday-hero-content h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: #fff; margin-bottom: 1rem; line-height: 1.2;
+    }
+    .holiday-hero-content p {
+      font-size: 1rem; color: rgba(255,255,255,0.88);
+      font-weight: 300; line-height: 1.7; max-width: 600px;
+    }
+    /* snowflakes decoration */
+    .holiday-hero::before {
+      content: '❄ ❅ ❆ ❄ ❅ ❆ ❄';
+      position: absolute; top: 1rem; right: 2rem;
+      font-size: 1.4rem; color: rgba(255,255,255,0.25);
+      letter-spacing: 0.5rem;
+    }
+    .holiday-images {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem; margin-bottom: 2.5rem; border-radius: 16px; overflow: hidden;
+    }
+    .holiday-img-wrap { position: relative; overflow: hidden; height: 200px; }
+    .holiday-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .holiday-img-wrap:hover img { transform: scale(1.06); }
+    .holiday-img-wrap:first-child { grid-row: span 1; }
     .holiday-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.2rem;
     }
     .holiday-tip {
       background: #fff; border-radius: 14px; padding: 1.6rem 1.8rem;
-      box-shadow: 0 2px 12px rgba(30,135,53,0.07);
-      border-left: 4px solid var(--orange);
+      box-shadow: 0 2px 12px rgba(139,0,0,0.08);
+      border-left: 4px solid #8b0000;
       transition: transform 0.25s, box-shadow 0.25s;
+      position: relative; overflow: hidden;
     }
-    .holiday-tip:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,135,53,0.12); }
+    .holiday-tip::after {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 60px; height: 60px;
+      background: radial-gradient(circle at top right, rgba(20,80,20,0.06), transparent 70%);
+    }
+    .holiday-tip:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(139,0,0,0.12); }
     .holiday-tip h3 {
-      font-family: 'Lora', serif; font-size: 1.05rem; color: var(--green);
+      font-family: 'Lora', serif; font-size: 1.05rem; color: #8b0000;
       margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;
     }
     .holiday-tip p { font-size: 0.93rem; line-height: 1.72; color: var(--text-m); font-weight: 300; margin: 0; }
@@ -419,6 +463,8 @@
       .recipe-img-credit img, .recipe-img { height: 240px; min-height: 240px; }
       .ask-cta { grid-template-columns: 1fr; text-align: center; }
       .med-intro { grid-template-columns: 1fr; }
+      .holiday-images { grid-template-columns: 1fr; }
+      .holiday-img-wrap { height: 180px; }
     }
     @media(max-width: 640px) {
       .page-content { padding: 3rem 1.2rem 5rem; }
@@ -671,8 +717,8 @@
       <!-- Spring -->
       <div class="recipe-card reveal">
         <div class="recipe-img-credit">
-          <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=600&q=80" alt="Red lentil dal">
-          <span>Credit: BBC Good Food</span>
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80" alt="Masoor Dal - Red Lentil soup with chapati">
+          <span>Credit: Unsplash</span>
         </div>
         <div class="recipe-body">
           <span class="season-tag">🌱 Spring Recipe</span>
@@ -728,16 +774,16 @@
           <a href="https://www.albertahealthservices.ca/assets/info/nutrition/if-nfs-stir-fried-tofu.pdf" target="_blank" rel="noopener" class="recipe-link">Additional recipe: Stir Fried Tofu →</a>
         </div>
         <div class="recipe-img-credit">
-          <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80" alt="Tofu and vegetable stir-fry">
-          <span>Credit: MealPractice</span>
+          <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&q=80" alt="Tofu vegetable brown rice stir-fry">
+          <span>Credit: Unsplash</span>
         </div>
       </div>
 
       <!-- Summer -->
       <div class="recipe-card reveal">
         <div class="recipe-img-credit">
-          <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80" alt="Fresh salad with dressing">
-          <span>Credit: The Busy Baker</span>
+          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&q=80" alt="Fresh green salad with lemon basil dressing">
+          <span>Credit: Unsplash</span>
         </div>
         <div class="recipe-body">
           <span class="season-tag">☀️ Summer Recipe</span>
@@ -771,8 +817,8 @@
           <a href="https://www.albertahealthservices.ca/assets/info/nutrition/if-nfs-spanish-rice-and-beans.pdf" target="_blank" rel="noopener" class="recipe-link">View Full Recipe (PDF) →</a>
         </div>
         <div class="recipe-img-credit">
-          <img src="https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=600&q=80" alt="Rice and beans dish">
-          <span>Credit: BBC Good Food</span>
+          <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80" alt="Spanish rice and beans">
+          <span>Credit: Unsplash</span>
         </div>
       </div>
     </div>
@@ -780,11 +826,30 @@
     <!-- ── HOLIDAY TIPS ── -->
     <div class="holiday-section">
       <div class="section-divider reveal">
-        <span class="label">Holiday Eating</span>
+        <span class="label">🎄 Holiday Eating</span>
         <div class="line"></div>
       </div>
-      <h2 class="reveal">Holiday Eating Tips for a Healthy Liver!</h2>
-      <p class="reveal">It's almost that time of the year again! We know it is a holiday season, but your liver doesn't — disrupted schedules, less regular exercise, and increased stress levels can lead to mindless eating and poor food choices. The key is finding a balance that works best for you. It is never too late to start making action plans to stay on track with your health goals through the season.</p>
+
+      <div class="holiday-hero reveal">
+        <div class="holiday-hero-content">
+          <div class="christmas-tag">🎅 Seasonal Guide</div>
+          <h2>Holiday Eating Tips for a Healthy Liver!</h2>
+          <p>It's almost that time of the year again! We know it is a holiday season, but your liver doesn't — disrupted schedules, less regular exercise, and increased stress levels can lead to mindless eating and poor food choices. The key is finding a balance that works best for you. It is never too late to start making action plans to stay on track with your health goals through the season.</p>
+        </div>
+      </div>
+
+      <div class="holiday-images reveal">
+        <div class="holiday-img-wrap">
+          <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?w=600&q=80" alt="Christmas festive table">
+        </div>
+        <div class="holiday-img-wrap">
+          <img src="https://images.unsplash.com/photo-1543285198-3af15c4592ce?w=600&q=80" alt="Christmas holiday dinner">
+        </div>
+        <div class="holiday-img-wrap">
+          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=600&q=80" alt="Healthy Christmas food">
+        </div>
+      </div>
+
       <div class="holiday-grid">
         <div class="holiday-tip reveal delay-1">
           <h3>⚖️ Follow the 80/20 rule</h3>
