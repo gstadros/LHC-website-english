@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Diet & Liver Health – Liver Health Connect</title>
+  <link rel="stylesheet" href="../shared.css">
+  <style>
+    body { padding-top: var(--nav-h); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 4.5rem 2rem 4rem;
+      background:
+        linear-gradient(160deg, rgba(30,135,53,0.92) 0%, rgba(110,155,45,0.7) 50%, rgba(224,95,26,0.6) 100%),
+        url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1600&q=80') center/cover no-repeat;
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .page-hero .breadcrumb {
+      font-size: 0.78rem; color: rgba(255,255,255,0.7);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .page-hero .breadcrumb a { color: rgba(255,255,255,0.75); text-decoration: none; }
+    .page-hero .breadcrumb a:hover { color: #fff; }
+    .page-hero .breadcrumb span { opacity: 0.5; }
+    .page-hero h1 { font-family: 'Lora', serif; font-size: clamp(2rem,5vw,3.4rem); font-weight: 600; line-height: 1.2; max-width: 700px; }
+    .page-hero .subtitle { margin-top: 1rem; font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.85); max-width: 580px; line-height: 1.65; }
+
+    /* ── LAYOUT ── */
+    .page-content { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+
+    /* ── DIETITIAN INTRO — full-width feature ── */
+    .dietitian-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(30,135,53,0.12);
+      margin-bottom: 5rem;
+    }
+    .dietitian-text {
+      background: var(--green);
+      padding: 3.5rem;
+      color: #fff;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .dietitian-text .eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .dietitian-text h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.5rem,2.5vw,2rem);
+      font-weight: 600; color: #fff; margin-bottom: 1.4rem; line-height: 1.3;
+    }
+    .dietitian-text p {
+      font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.88);
+      font-weight: 300; margin-bottom: 1rem;
+    }
+    .dietitian-text p:last-child { margin-bottom: 0; }
+    .dietitian-visual {
+      background:
+        linear-gradient(180deg, rgba(30,135,53,0.3) 0%, rgba(224,95,26,0.2) 100%),
+        url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=900&q=80') center/cover no-repeat;
+    }
+
+    /* ── SECTION DIVIDER ── */
+    .section-divider {
+      display: flex; align-items: center; gap: 1.2rem;
+      margin: 0 0 2.5rem;
+    }
+    .section-divider .label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--orange-w); white-space: nowrap;
+    }
+    .section-divider .line {
+      flex: 1; height: 1px;
+      background: linear-gradient(to right, rgba(30,135,53,0.2), transparent);
+    }
+
+    /* ── TIPS SECTION ── */
+    .tips-section { margin-bottom: 5rem; }
+    .tips-section h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.4rem,2.5vw,1.9rem);
+      color: var(--green); margin-bottom: 0.6rem;
+    }
+    .tips-section > p {
+      font-size: 1rem; line-height: 1.75; color: var(--text-m); font-weight: 300;
+      max-width: 700px; margin-bottom: 2rem;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+    .tip-card {
+      background: #fff; border-radius: 14px;
+      padding: 1.6rem;
+      box-shadow: 0 2px 12px rgba(30,135,53,0.07);
+      border-top: 3px solid var(--green);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .tip-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,135,53,0.13); }
+    .tip-card .num {
+      font-family: 'Lora', serif; font-size: 2.2rem; font-weight: 600;
+      color: var(--cream); line-height: 1; margin-bottom: 0.6rem;
+    }
+    .tip-card p { font-size: 0.95rem; line-height: 1.7; color: var(--text-m); font-weight: 300; margin: 0; }
+
+    /* ── MEDITERRANEAN SECTION ── */
+    .med-section { margin-bottom: 5rem; }
+    .med-intro {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .med-intro h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.4rem,2.5vw,1.9rem);
+      color: var(--green); margin-bottom: 1rem; grid-column: 1/-1;
+    }
+    .med-intro > p {
+      font-size: 1rem; line-height: 1.78; color: var(--text-m); font-weight: 300;
+      grid-column: 1/-1; max-width: 800px;
+    }
+    /* consumption tiers */
+    .consumption-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .consumption-card {
+      border-radius: 14px; padding: 1.6rem;
+      display: flex; flex-direction: column; gap: 0.8rem;
+    }
+    .consumption-card.high { background: linear-gradient(135deg, var(--green) 0%, var(--green-m) 100%); color: #fff; }
+    .consumption-card.mod  { background: linear-gradient(135deg, var(--gold) 0%, var(--orange-w) 100%); color: var(--black); }
+    .consumption-card.low  { background: linear-gradient(135deg, var(--orange) 0%, #c04a10 100%); color: #fff; }
+    .consumption-card h3 {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; opacity: 0.85; margin-bottom: 0.2rem;
+    }
+    .consumption-card ul { list-style: none; padding: 0; }
+    .consumption-card ul li {
+      font-size: 0.93rem; line-height: 1.6; font-weight: 300;
+      padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .consumption-card.mod ul li { border-color: rgba(0,0,0,0.1); }
+    .consumption-card ul li:last-child { border-bottom: none; }
+
+    /* good for liver blurb */
+    .med-good {
+      background: var(--cream); border-radius: 14px;
+      padding: 2rem 2.4rem; margin-bottom: 2.5rem;
+      border-left: 4px solid var(--green);
+    }
+    .med-good h3 { font-family: 'Lora', serif; font-size: 1.2rem; color: var(--green); margin-bottom: 0.8rem; }
+    .med-good p { font-size: 1rem; line-height: 1.78; color: var(--text-m); font-weight: 300; }
+
+    /* ── CHECKLIST ── */
+    .checklist-section { margin-bottom: 5rem; }
+    .checklist-section h3 {
+      font-family: 'Lora', serif; font-size: 1.3rem; color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .checklist-section > p {
+      font-size: 0.95rem; color: var(--text-m); font-weight: 300;
+      margin-bottom: 1.8rem; max-width: 700px; line-height: 1.7;
+    }
+    .checklist-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem;
+    }
+    .check-item {
+      background: #fff; border-radius: 10px;
+      padding: 1rem 1.3rem;
+      display: flex; align-items: center; gap: 1rem;
+      box-shadow: 0 1px 8px rgba(30,135,53,0.07);
+      transition: box-shadow 0.2s;
+    }
+    .check-item:hover { box-shadow: 0 4px 16px rgba(30,135,53,0.12); }
+    .check-box {
+      width: 22px; height: 22px; border-radius: 5px;
+      border: 2px solid var(--green); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .check-item p { font-size: 0.93rem; line-height: 1.5; color: var(--text-m); font-weight: 300; margin: 0; }
+
+    /* ── BLOG SECTION ── */
+    .blog-section { margin-bottom: 5rem; }
+    .blog-header {
+      background: linear-gradient(135deg, var(--text) 0%, #2a3a1a 100%);
+      border-radius: 16px 16px 0 0;
+      padding: 2rem 2.4rem;
+    }
+    .blog-header .date-tag {
+      display: inline-block; background: var(--gold); color: var(--black);
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px;
+      margin-bottom: 0.8rem;
+    }
+    .blog-header h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.3rem,2.5vw,1.8rem);
+      color: #fff; line-height: 1.3;
+    }
+    .blog-body {
+      background: #fff; border-radius: 0 0 16px 16px;
+      padding: 2.4rem;
+      box-shadow: 0 4px 24px rgba(30,135,53,0.08);
+    }
+    .blog-body p {
+      font-size: 1rem; line-height: 1.8; color: var(--text-m); font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+    .blog-body p:last-child { margin-bottom: 0; }
+    .blog-body ul {
+      padding-left: 1.4rem; margin: 0.8rem 0 1.2rem;
+    }
+    .blog-body ul li {
+      font-size: 1rem; line-height: 1.7; color: var(--text-m); font-weight: 300;
+      margin-bottom: 0.3rem;
+    }
+    .blog-callout {
+      background: linear-gradient(135deg, rgba(30,135,53,0.07) 0%, rgba(171,190,48,0.07) 100%);
+      border: 1.5px solid rgba(30,135,53,0.18);
+      border-radius: 12px; padding: 1.4rem 1.8rem;
+      font-family: 'Lora', serif; font-size: 1.05rem;
+      font-style: italic; color: var(--green); line-height: 1.65;
+      margin: 1.6rem 0;
+    }
+
+    /* ── COMPARE TABLE ── */
+    .compare-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin: 1.6rem 0;
+    }
+    .compare-col {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 10px rgba(30,135,53,0.07);
+    }
+    .compare-col-header {
+      padding: 1rem 1.4rem;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #fff;
+    }
+    .compare-col:first-child .compare-col-header { background: var(--green); }
+    .compare-col:last-child .compare-col-header { background: var(--orange); }
+    .compare-col-body { background: #fff; padding: 1rem 1.4rem; }
+    .compare-col-body ul { list-style: none; padding: 0; }
+    .compare-col-body ul li {
+      font-size: 0.93rem; line-height: 1.65; color: var(--text-m); font-weight: 300;
+      padding: 0.4rem 0; border-bottom: 1px solid rgba(30,135,53,0.08);
+      display: flex; gap: 0.6rem;
+    }
+    .compare-col-body ul li:last-child { border-bottom: none; }
+    .compare-col-body ul li::before { content: '•'; color: var(--orange-w); font-size: 1rem; flex-shrink: 0; }
+
+    /* ── RECIPES ── */
+    .recipes-section { margin-bottom: 5rem; }
+    .recipes-section h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.4rem,2.5vw,1.9rem);
+      color: var(--green); margin-bottom: 2rem;
+    }
+    .recipe-card {
+      background: #fff; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 2px 16px rgba(30,135,53,0.08);
+      margin-bottom: 2rem;
+      display: grid; grid-template-columns: 320px 1fr;
+    }
+    .recipe-card.reverse { grid-template-columns: 1fr 320px; }
+    .recipe-img {
+      width: 100%; height: 100%; min-height: 280px;
+      object-fit: cover; display: block;
+    }
+    .recipe-img-credit {
+      position: relative;
+    }
+    .recipe-img-credit img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; display: block; }
+    .recipe-img-credit span {
+      position: absolute; bottom: 0.5rem; right: 0.7rem;
+      font-size: 0.65rem; color: rgba(255,255,255,0.85);
+      background: rgba(0,0,0,0.4); padding: 0.2rem 0.5rem; border-radius: 4px;
+    }
+    .recipe-body { padding: 2rem 2.2rem; }
+    .recipe-body .season-tag {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--orange-w); margin-bottom: 0.6rem;
+    }
+    .recipe-body h3 {
+      font-family: 'Lora', serif; font-size: 1.25rem;
+      color: var(--green); margin-bottom: 1.2rem; line-height: 1.3;
+    }
+    .recipe-body h4 {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-l); margin: 1rem 0 0.5rem;
+    }
+    .recipe-body ul, .recipe-body ol {
+      padding-left: 1.2rem; margin-bottom: 0.8rem;
+    }
+    .recipe-body ul li, .recipe-body ol li {
+      font-size: 0.92rem; line-height: 1.65; color: var(--text-m); font-weight: 300;
+      margin-bottom: 0.25rem;
+    }
+    .recipe-body a.recipe-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 0.8rem; color: var(--green); font-size: 0.88rem;
+      font-weight: 600; text-decoration: none; border-bottom: 1.5px solid var(--green);
+      padding-bottom: 0.1rem; transition: color 0.2s, border-color 0.2s;
+    }
+    .recipe-body a.recipe-link:hover { color: var(--orange); border-color: var(--orange); }
+
+    /* ── HOLIDAY TIPS ── */
+    .holiday-section { margin-bottom: 5rem; }
+    .holiday-section h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.4rem,2.5vw,1.9rem);
+      color: var(--green); margin-bottom: 0.6rem;
+    }
+    .holiday-section > p {
+      font-size: 1rem; line-height: 1.78; color: var(--text-m); font-weight: 300;
+      max-width: 800px; margin-bottom: 2rem;
+    }
+    .holiday-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.2rem;
+    }
+    .holiday-tip {
+      background: #fff; border-radius: 14px; padding: 1.6rem 1.8rem;
+      box-shadow: 0 2px 12px rgba(30,135,53,0.07);
+      border-left: 4px solid var(--orange);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .holiday-tip:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,135,53,0.12); }
+    .holiday-tip h3 {
+      font-family: 'Lora', serif; font-size: 1.05rem; color: var(--green);
+      margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .holiday-tip p { font-size: 0.93rem; line-height: 1.72; color: var(--text-m); font-weight: 300; margin: 0; }
+
+    /* ── ASK DIETITIAN CTA ── */
+    .ask-cta {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-m) 100%);
+      border-radius: 20px; padding: 3rem;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 2rem;
+    }
+    .ask-cta h2 { font-family: 'Lora', serif; font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem; }
+    .ask-cta p { font-size: 0.97rem; color: rgba(255,255,255,0.85); font-weight: 300; line-height: 1.65; max-width: 560px; }
+    .ask-cta .btn-primary { white-space: nowrap; color: var(--black); }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 860px) {
+      .dietitian-feature { grid-template-columns: 1fr; }
+      .dietitian-visual { height: 280px; }
+      .consumption-grid { grid-template-columns: 1fr; }
+      .checklist-grid { grid-template-columns: 1fr; }
+      .compare-wrap { grid-template-columns: 1fr; }
+      .recipe-card, .recipe-card.reverse { grid-template-columns: 1fr; }
+      .recipe-img-credit img, .recipe-img { height: 240px; min-height: 240px; }
+      .ask-cta { grid-template-columns: 1fr; text-align: center; }
+      .med-intro { grid-template-columns: 1fr; }
+    }
+    @media(max-width: 640px) {
+      .page-content { padding: 3rem 1.2rem 5rem; }
+      .dietitian-text { padding: 2.2rem 1.6rem; }
+      .tips-grid { grid-template-columns: 1fr 1fr; }
+      .holiday-grid { grid-template-columns: 1fr; }
+      .ask-cta { padding: 2rem 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <!-- ── HERO ── -->
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="https://gstadros.github.io/LHC-website-english/index.html">Home</a>
+      <span>›</span>
+      <span>Diet &amp; Liver Health</span>
+    </div>
+    <h1>Diet &amp; Liver Health</h1>
+    <p class="subtitle">Practical, culturally-informed nutrition guidance to support your liver — from our registered dietitian in Calgary.</p>
+  </div>
+
+  <div class="page-content">
+
+    <!-- ── DIETITIAN INTRO ── -->
+    <div class="dietitian-feature reveal">
+      <div class="dietitian-text">
+        <div class="eyebrow">Dietitian Blogs</div>
+        <h2>A Note from Our Registered Dietitian</h2>
+        <p>I am a registered dietitian in Calgary. Having been born and raised in Singapore, a multicultural nation, I have had the unique opportunity to be surrounded by different ethnic groups. After completion of my dietetics nutrition degree in Montreal, I worked as a diabetes educator in the capital city of Canada for several years before heading west to Calgary.</p>
+        <p>I believe that having well-balanced nutrition isn't just about getting nourishment from the food we eat, but also encompasses our social connection to cultural traditions and personal pleasures.</p>
+        <p>In these blog posts, I look forward to sharing ways to power-up your liver health and begin on a journey towards a healthier life.</p>
+      </div>
+      <div class="dietitian-visual"></div>
+    </div>
+
+    <!-- ── EATING WELL ── -->
+    <div class="tips-section">
+      <div class="section-divider reveal">
+        <span class="label">Foundation</span>
+        <div class="line"></div>
+      </div>
+      <h2 class="reveal">Why is eating well important when you have liver disease?</h2>
+      <p class="reveal">Your liver is essential for proper nutrition and health and acts like your body's power station. It helps with digestion, storage, and supplying nutrients such as sugar, fat, protein, vitamins, and minerals. The liver does hundreds of different jobs in the body day in and day out.</p>
+
+      <div class="tips-grid">
+        <div class="tip-card reveal delay-1">
+          <div class="num">01</div>
+          <p>Enjoy a healthy balanced plate for each of your three meals.</p>
+        </div>
+        <div class="tip-card reveal delay-2">
+          <div class="num">02</div>
+          <p>Use The Balanced Food Plate to follow healthy food portions and choices. Try to fill 50% of your plate with vegetables and fruits, 25% with whole grains or starchy vegetables and 25% with protein-rich foods.</p>
+        </div>
+        <div class="tip-card reveal delay-3">
+          <div class="num">03</div>
+          <p>Drink water throughout the day.</p>
+        </div>
+        <div class="tip-card reveal delay-4">
+          <div class="num">04</div>
+          <p>Limit sugar, fat, unhealthy calories and salt.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MEDITERRANEAN ── -->
+    <div class="med-section">
+      <div class="section-divider reveal">
+        <span class="label">Mediterranean Style</span>
+        <div class="line"></div>
+      </div>
+      <div class="med-intro">
+        <h2 class="reveal">What is the Mediterranean Style of Eating?</h2>
+        <p class="reveal">The Mediterranean diet is a style of eating that includes foods often eaten in the countries around the Mediterranean Sea. Some of these countries are Spain, Italy, Greece, Turkey, Israel, Egypt, and Morocco. The Mediterranean diet is not one single diet but varies by culture and region, maintaining a common theme of:</p>
+      </div>
+
+      <div class="consumption-grid">
+        <div class="consumption-card high reveal delay-1">
+          <h3>High Consumption</h3>
+          <ul>
+            <li>Vegetables &amp; fruits</li>
+            <li>Cereals &amp; legumes</li>
+            <li>Nuts</li>
+            <li>Unsaturated fats (e.g. olive oil)</li>
+          </ul>
+        </div>
+        <div class="consumption-card mod reveal delay-2">
+          <h3>Moderate Consumption</h3>
+          <ul>
+            <li>Fish &amp; seafood</li>
+            <li>Poultry &amp; eggs</li>
+            <li>Dairy products</li>
+          </ul>
+        </div>
+        <div class="consumption-card low reveal delay-3">
+          <h3>Reduced Consumption</h3>
+          <ul>
+            <li>Red &amp; processed meat</li>
+            <li>Butter</li>
+            <li>Added sugar</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="med-good reveal">
+        <h3>Is Mediterranean Style of Eating Good for My Liver Health?</h3>
+        <p>Following a Mediterranean style of eating may help some people with fatty liver disease. That's because this style of eating helps control our appetite and reduce portion sizes. It is also higher in nutrients like fibre, healthy fats, vitamins, minerals, and antioxidants while lower in unhealthy fats, red and processed meats, refined grains, and sugar.</p>
+      </div>
+
+      <!-- checklist -->
+      <div class="checklist-section reveal">
+        <h3>Do you eat in the Mediterranean style?</h3>
+        <p>Check Yes or No for each item below. Each Yes is a Mediterranean style eating habit you already have. If you're ready to make changes, use the tips below to increase your Yes answers.</p>
+        <div class="checklist-grid">
+          <div class="check-item"><div class="check-box"></div><p>I eat 5 or more vegetables every day.</p></div>
+          <div class="check-item"><div class="check-box"></div><p>I eat 3 or more fruits throughout the day.</p></div>
+          <div class="check-item"><div class="check-box"></div><p>I eat whole grains (whole grain or whole wheat bread, cereal, pasta, or rice) every day.</p></div>
+          <div class="check-item"><div class="check-box"></div><p>I use olive oil for cooking and at the table.</p></div>
+          <div class="check-item"><div class="check-box"></div><p>I eat nuts, seeds, or avocado at least 3 times a week.</p></div>
+          <div class="check-item"><div class="check-box"></div><p>I eat beans, peas, or lentils at least 3 times a week.</p></div>
+          <div class="check-item"><div class="check-box"></div><p>I eat fish at least 3 times a week.</p></div>
+          <div class="check-item"><div class="check-box"></div><p>I enjoy at least one meal a day with friends or family.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MARCH 2026 BLOG ── -->
+    <div class="blog-section">
+      <div class="section-divider reveal">
+        <span class="label">Nutrition Blog</span>
+        <div class="line"></div>
+      </div>
+      <div class="blog-header reveal">
+        <div class="date-tag">March 2026</div>
+        <h2>LHC Nutrition Blog — Mediterranean vs. Anti-Inflammatory: Which is Better for Fatty Liver?</h2>
+      </div>
+      <div class="blog-body reveal">
+        <p>Metabolic dysfunction–associated steatotic liver disease (MASLD) and formerly known as Non-alcoholic fatty liver disease (NAFLD) is closely connected to insulin resistance, chronic low-grade inflammation and modern dietary pattern.</p>
+        <p>If you have been informed by your physician you have fatty liver disease, you have probably heard of this, nutrition alongside healthy lifestyle is one of the most effective ways to reverse or manage metabolic dysfunction–associated steatotic liver disease.</p>
+        <p>Have you ever wondered what the difference is between Mediterranean style of eating and Anti-Inflammatory Diet? These are the top 2 patterns of eating for individuals with fatty liver disease – they are more alike than different because they focus on:</p>
+
+        <div class="compare-wrap">
+          <div class="compare-col">
+            <div class="compare-col-header">Mediterranean Style</div>
+            <div class="compare-col-body">
+              <ul>
+                <li>Choose whole grains</li>
+                <li>Add more vegetables</li>
+                <li>Cook with healthier oils</li>
+                <li>Cut back on added sugar</li>
+              </ul>
+            </div>
+          </div>
+          <div class="compare-col">
+            <div class="compare-col-header">Anti-Inflammatory Diet</div>
+            <div class="compare-col-body">
+              <ul>
+                <li>Choose whole grains</li>
+                <li>Add more vegetables</li>
+                <li>Cook with healthier oils</li>
+                <li>Cut back on added sugar</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-callout">
+          The most realistic and efficient approach is not about choosing one pattern of eating over the other, however, to combine Mediterranean style of eating and Anti-Inflammatory Diet into culturally relevant and sustainable eating habits, that you already know and enjoy.
+        </div>
+
+        <p>When nutrition messages meet culture with simple makeover! <strong>Traditional South Asian Foods</strong></p>
+      </div>
+    </div>
+
+    <!-- ── RECIPES ── -->
+    <div class="recipes-section">
+      <div class="section-divider reveal">
+        <span class="label">Seasonal Recipes</span>
+        <div class="line"></div>
+      </div>
+      <h2 class="reveal">Recipes of the Season</h2>
+
+      <!-- Spring -->
+      <div class="recipe-card reveal">
+        <div class="recipe-img-credit">
+          <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=600&q=80" alt="Red lentil dal">
+          <span>Credit: BBC Good Food</span>
+        </div>
+        <div class="recipe-body">
+          <span class="season-tag">🌱 Spring Recipe</span>
+          <h3>Whole Wheat Chapati with Red Lentils Dal (Masoor Dal)</h3>
+          <h4>Ingredients</h4>
+          <ul>
+            <li>½ cup red lentils (masoor dal), wash and rinse</li>
+            <li>¼ cup yellow lentils (moong dal), wash and rinse</li>
+            <li>3 to 4 medium tomatoes, cut into chunks</li>
+            <li>1½ cup of water</li>
+            <li>1 to 1½ tablespoon canola or mustard oil</li>
+            <li>¼ head garlic, peeled and minced</li>
+            <li>1 medium red or yellow onion, cut into eighths</li>
+            <li>½ teaspoon Kashmiri red chili powder</li>
+            <li>½ teaspoon cumin seeds</li>
+            <li>½ teaspoon dried fenugreek leaves (kasuri methi)</li>
+            <li>¼ teaspoon salt</li>
+            <li>1/8 teaspoon garam masala</li>
+          </ul>
+          <h4>Directions</h4>
+          <ol>
+            <li>Add red lentils, yellow lentils, chopped tomatoes and water to a medium saucepan. Mix well. Turn high heat, bring to a boil. Cover with lid and reduce heat to low setting and cook until soft, adding more hot water, if needed. Remove from heat, set aside.</li>
+            <li>In a medium frying pan, add oil. Turn medium heat. Once oil is heated, add garlic, onion, red chili powder, cumin seeds, salt and garam masala, stir fry for 4 to 5 minutes. Pour into lentils mixture. Add dried fenugreek leaves. Mix well and simmer for 2 to 3 minutes. Remove from heat.</li>
+            <li>Serve Red Lentils Dal (Masoor Dal) warm with whole wheat chapati or roti.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Fall -->
+      <div class="recipe-card reverse reveal">
+        <div class="recipe-body">
+          <span class="season-tag">🍂 Fall Recipe</span>
+          <h3>Simple One-Dish Vegetables, Tofu and Brown Rice Stir-fry (makes 4 servings)</h3>
+          <h4>Ingredients</h4>
+          <ul>
+            <li>1 cup of brown rice</li>
+            <li>2 cups of no salt vegetable broth</li>
+            <li>2 tablespoons vegetable oil, canola or olive</li>
+            <li>1 head of garlic, peeled and chopped thinly</li>
+            <li>1 medium red or yellow onion, cut into eighths</li>
+            <li>4 medium carrots, peeled and cut lengthwise</li>
+            <li>1 cup cauliflower, sliced 1 inch (2.5 cm)</li>
+            <li>1 cup broccoli, sliced 1 inch (2.5 cm)</li>
+            <li>1 package (350g) extra firm tofu, cut into ½ inch</li>
+          </ul>
+          <h4>Directions</h4>
+          <ol>
+            <li>Prepare a day before. Mix rice and vegetable broth in a medium pot. Turn high heat, bring to a boil. Cover with lid and reduce heat to low setting. Cook for 50 minutes. Remove from heat, set aside. After cooling, to frige overnight.</li>
+            <li>In a large frying pan, add vegetable oil. Turn medium heat. Once oil is heated, add garlic and onion, stir fry for 3 to 4 minutes. Add carrots, cauliflower, broccoli and tofu, and stir-fry for 8 to 10 minutes, until vegetables become tender.</li>
+            <li>Stir in the overnight rice and cook for another 5 to 6 minutes.</li>
+            <li>Serve warm.</li>
+          </ol>
+          <a href="https://www.albertahealthservices.ca/assets/info/nutrition/if-nfs-stir-fried-tofu.pdf" target="_blank" rel="noopener" class="recipe-link">Additional recipe: Stir Fried Tofu →</a>
+        </div>
+        <div class="recipe-img-credit">
+          <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80" alt="Tofu and vegetable stir-fry">
+          <span>Credit: MealPractice</span>
+        </div>
+      </div>
+
+      <!-- Summer -->
+      <div class="recipe-card reveal">
+        <div class="recipe-img-credit">
+          <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80" alt="Fresh salad with dressing">
+          <span>Credit: The Busy Baker</span>
+        </div>
+        <div class="recipe-body">
+          <span class="season-tag">☀️ Summer Recipe</span>
+          <h3>Basil and Lemon Dressing (makes 75ml or 1/3 cup)</h3>
+          <p style="font-size:0.93rem;color:var(--text-m);font-weight:300;line-height:1.7;margin-bottom:0.8rem;">A nicely prepared salad with an easy dressing can be a well-balanced meal. By making your own dressing, you can control the amount of fat and salt that you add, as well as the quality of ingredients.</p>
+          <h4>Ingredients</h4>
+          <ul>
+            <li>1 tablespoon fresh basil leaves, chopped</li>
+            <li>2 tablespoons garlic cloves, minced</li>
+            <li>2 tablespoons fresh lemon juice</li>
+            <li>½ teaspoon lemon peel, grated</li>
+            <li>1 tablespoon canola oil</li>
+            <li>2 tablespoons red wine (or white) vinegar</li>
+            <li>½ teaspoon freshly ground black pepper</li>
+          </ul>
+          <h4>Directions</h4>
+          <ol>
+            <li>Combine all ingredients in a small bowl and pour over salad.</li>
+            <li>Mix well. Serve at room temperature.</li>
+          </ol>
+          <a href="https://www.albertahealthservices.ca/info/page13984.aspx" target="_blank" rel="noopener" class="recipe-link">Alberta Healthy Living Program →</a>
+        </div>
+      </div>
+
+      <!-- Winter -->
+      <div class="recipe-card reverse reveal">
+        <div class="recipe-body">
+          <span class="season-tag">❄️ Winter Recipe</span>
+          <h3>Spanish Rice and Beans</h3>
+          <p style="font-size:0.93rem;color:var(--text-m);font-weight:300;line-height:1.7;margin-bottom:1rem;">As the winter months are upon us, I would like to entice you with this healthy, well-balanced, easy to prepare one-dish meal.</p>
+          <a href="https://www.albertahealthservices.ca/assets/info/nutrition/if-nfs-spanish-rice-and-beans.pdf" target="_blank" rel="noopener" class="recipe-link">View Full Recipe (PDF) →</a>
+        </div>
+        <div class="recipe-img-credit">
+          <img src="https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=600&q=80" alt="Rice and beans dish">
+          <span>Credit: BBC Good Food</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HOLIDAY TIPS ── -->
+    <div class="holiday-section">
+      <div class="section-divider reveal">
+        <span class="label">Holiday Eating</span>
+        <div class="line"></div>
+      </div>
+      <h2 class="reveal">Holiday Eating Tips for a Healthy Liver!</h2>
+      <p class="reveal">It's almost that time of the year again! We know it is a holiday season, but your liver doesn't — disrupted schedules, less regular exercise, and increased stress levels can lead to mindless eating and poor food choices. The key is finding a balance that works best for you. It is never too late to start making action plans to stay on track with your health goals through the season.</p>
+      <div class="holiday-grid">
+        <div class="holiday-tip reveal delay-1">
+          <h3>⚖️ Follow the 80/20 rule</h3>
+          <p>Aim to make sure 80 percent of your meals align with your regular health routine and goals. I enjoy a small portion of my favorite treats and fill the other 80 percent of my plate with nutritious foods.</p>
+        </div>
+        <div class="holiday-tip reveal delay-2">
+          <h3>📋 Plan ahead</h3>
+          <p>Eating a light snack of foods high in fiber and protein such as nut or seed butter on whole grain crackers or yogurt, before a holiday party that I know may have lots of high-calorie treats can help curb my appetite so that I avoid overeating.</p>
+        </div>
+        <div class="holiday-tip reveal delay-3">
+          <h3>🏃 Stay active</h3>
+          <p>Keep moving, any exercise that you enjoy. Be it a walk, a swim or a dance. Consider how exercise will help you feel better and more refreshed.</p>
+        </div>
+        <div class="holiday-tip reveal delay-4">
+          <h3>🍽️ Practice portion control</h3>
+          <p>Include a variety of colorful veggies and lean protein such as chicken, fish, and legumes on your plate, then opt for smaller portions of high-calorie foods and sweet treats. Slow down and savor each bite, stop eating when you feel satisfied rather than overly full.</p>
+        </div>
+        <div class="holiday-tip reveal delay-5">
+          <h3>💧 Stay hydrated</h3>
+          <p>Drinking adequate and regular water throughout the day can help you feel fuller and avoid overeating. Limit consumption of alcohol and high calorie beverages such as eggnog, regular pops, and iced tea. Healthier alternatives include infused water, tea, herbal tea, black coffee, low fat milk, unsweetened plant-based beverage or club soda.</p>
+        </div>
+        <div class="holiday-tip reveal delay-5">
+          <h3>😴 Beyond food</h3>
+          <p>In addition to eating healthily, being physically active, having good sleep and stress management are also important.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ASK DIETITIAN ── -->
+    <div class="ask-cta reveal">
+      <div>
+        <h2>Have a question for our Dietitian?</h2>
+        <p>Use the anonymous form below! Once it is answered, we will add the question and answer to our FAQs for you and other people to see.</p>
+      </div>
+      <a href="https://form.jotform.com/251561557744261" target="_blank" rel="noopener" class="btn btn-primary">Open Anonymous Form</a>
+    </div>
+
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  </script>
+  <script src="../components.js"></script>
+
+</body>
+</html>
