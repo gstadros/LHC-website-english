@@ -274,6 +274,45 @@
     }
     .compare-table tr:nth-child(even) td:not(:first-child) { background: rgba(30,135,53,0.03); }
 
+    /* ── SOUTH ASIAN SWAP TABLE ── */
+    .swap-table-wrap {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(30,135,53,0.08);
+      margin: 1.6rem 0;
+    }
+    .swap-title {
+      font-family: 'Lora', serif; font-size: 1.15rem;
+      text-align: center; padding: 1.2rem 1.4rem;
+      background: var(--cream); color: var(--text);
+      font-weight: 600; border-bottom: 1px solid rgba(30,135,53,0.1);
+    }
+    .swap-table {
+      width: 100%; border-collapse: collapse;
+    }
+    .swap-table thead th {
+      padding: 0.9rem 1.6rem; font-size: 0.95rem; font-weight: 700;
+    }
+    .swap-table th.swap-instead { color: var(--green); text-align: left; width: 38%; }
+    .swap-table th.swap-arrow { width: 8%; text-align: center; color: var(--orange-w); }
+    .swap-table th.swap-try { color: var(--orange); text-align: left; }
+    .swap-table tbody tr {
+      border-top: 1px solid rgba(30,135,53,0.08);
+      transition: background 0.2s;
+    }
+    .swap-table tbody tr:hover { background: rgba(30,135,53,0.03); }
+    .swap-table tbody td {
+      padding: 1rem 1.6rem; font-size: 0.97rem;
+      line-height: 1.6; font-weight: 300; vertical-align: middle;
+    }
+    .swap-table tbody td:first-child { color: var(--green); font-weight: 400; }
+    .swap-table tbody td:last-child { color: var(--orange); }
+    .swap-table .arrow-cell {
+      text-align: center; font-size: 1.2rem;
+      color: var(--orange-w); font-weight: 400; padding: 1rem 0;
+    }
+
     /* ── RECIPES ── */
     .recipes-section { margin-bottom: 5rem; }
     .recipes-section h2 {
@@ -575,7 +614,47 @@
           The most realistic and efficient approach is not about choosing one pattern of eating over the other, however, to combine Mediterranean style of eating and Anti-Inflammatory Diet into culturally relevant and sustainable eating habits, that you already know and enjoy.
         </div>
 
-        <p>When nutrition messages meet culture with simple makeover! <strong>Traditional South Asian Foods</strong></p>
+        <p>When nutrition messages meet culture with simple makeover!</p>
+
+        <div class="swap-table-wrap">
+          <h3 class="swap-title">Traditional South Asian Foods</h3>
+          <table class="swap-table">
+            <thead>
+              <tr>
+                <th class="swap-instead">Instead of</th>
+                <th class="swap-arrow"></th>
+                <th class="swap-try">Try this</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>White rice</td>
+                <td class="arrow-cell">⇒</td>
+                <td>Brown rice</td>
+              </tr>
+              <tr>
+                <td>White flour naan or roti</td>
+                <td class="arrow-cell">⇒</td>
+                <td>Whole wheat naan or roti</td>
+              </tr>
+              <tr>
+                <td>Butter or ghee</td>
+                <td class="arrow-cell">⇒</td>
+                <td>Mustard/sesame seed/ peanut/ canola/ olive oil</td>
+              </tr>
+              <tr>
+                <td>Paneer</td>
+                <td class="arrow-cell">⇒</td>
+                <td>Tofu, chickpeas (chole), lentils (dal), red kidney beans (rajma)</td>
+              </tr>
+              <tr>
+                <td>Deep-fried potatoes</td>
+                <td class="arrow-cell">⇒</td>
+                <td>okra (ladyfingers), eggplants</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
