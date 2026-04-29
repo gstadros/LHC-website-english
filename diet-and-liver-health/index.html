@@ -171,17 +171,22 @@
     .check-item {
       background: #fff; border-radius: 10px;
       padding: 1rem 1.3rem;
-      display: flex; align-items: center; gap: 1rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
       box-shadow: 0 1px 8px rgba(30,135,53,0.07);
       transition: box-shadow 0.2s;
     }
     .check-item:hover { box-shadow: 0 4px 16px rgba(30,135,53,0.12); }
-    .check-box {
-      width: 22px; height: 22px; border-radius: 5px;
-      border: 2px solid var(--green); flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
+    .check-item p { font-size: 0.93rem; line-height: 1.5; color: var(--text-m); font-weight: 300; margin: 0; flex: 1; }
+    .yn-boxes { display: flex; gap: 0.8rem; flex-shrink: 0; }
+    .yn-label {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-size: 0.82rem; font-weight: 600; color: var(--text-m);
+      cursor: pointer; white-space: nowrap;
     }
-    .check-item p { font-size: 0.93rem; line-height: 1.5; color: var(--text-m); font-weight: 300; margin: 0; }
+    .yn-label input[type="checkbox"] {
+      width: 18px; height: 18px; accent-color: var(--green);
+      cursor: pointer; flex-shrink: 0;
+    }
 
     /* ── BLOG SECTION ── */
     .blog-section { margin-bottom: 5rem; }
@@ -422,6 +427,10 @@
           <p>Limit sugar, fat, unhealthy calories and salt.</p>
         </div>
       </div>
+
+      <div class="reveal" style="text-align:center; margin-top:2.5rem;">
+        <img src="../assets/images/balanced_food_plate.png" alt="The Balanced Food Plate" style="max-width:100%; width:500px; border-radius:14px; box-shadow:0 4px 24px rgba(30,135,53,0.12);">
+      </div>
     </div>
 
     <!-- ── MEDITERRANEAN ── -->
@@ -473,14 +482,14 @@
         <h3>Do you eat in the Mediterranean style?</h3>
         <p>Check Yes or No for each item below. Each Yes is a Mediterranean style eating habit you already have. If you're ready to make changes, use the tips below to increase your Yes answers.</p>
         <div class="checklist-grid">
-          <div class="check-item"><div class="check-box"></div><p>I eat 5 or more vegetables every day.</p></div>
-          <div class="check-item"><div class="check-box"></div><p>I eat 3 or more fruits throughout the day.</p></div>
-          <div class="check-item"><div class="check-box"></div><p>I eat whole grains (whole grain or whole wheat bread, cereal, pasta, or rice) every day.</p></div>
-          <div class="check-item"><div class="check-box"></div><p>I use olive oil for cooking and at the table.</p></div>
-          <div class="check-item"><div class="check-box"></div><p>I eat nuts, seeds, or avocado at least 3 times a week.</p></div>
-          <div class="check-item"><div class="check-box"></div><p>I eat beans, peas, or lentils at least 3 times a week.</p></div>
-          <div class="check-item"><div class="check-box"></div><p>I eat fish at least 3 times a week.</p></div>
-          <div class="check-item"><div class="check-box"></div><p>I enjoy at least one meal a day with friends or family.</p></div>
+          <div class="check-item"><p>I eat 5 or more vegetables every day.</p><div class="yn-boxes"><label class="yn-label"><input type="checkbox"> Yes</label><label class="yn-label"><input type="checkbox"> No</label></div></div>
+          <div class="check-item"><p>I eat 3 or more fruits throughout the day.</p><div class="yn-boxes"><label class="yn-label"><input type="checkbox"> Yes</label><label class="yn-label"><input type="checkbox"> No</label></div></div>
+          <div class="check-item"><p>I eat whole grains (whole grain or whole wheat bread, cereal, pasta, or rice) every day.</p><div class="yn-boxes"><label class="yn-label"><input type="checkbox"> Yes</label><label class="yn-label"><input type="checkbox"> No</label></div></div>
+          <div class="check-item"><p>I use olive oil for cooking and at the table.</p><div class="yn-boxes"><label class="yn-label"><input type="checkbox"> Yes</label><label class="yn-label"><input type="checkbox"> No</label></div></div>
+          <div class="check-item"><p>I eat nuts, seeds, or avocado at least 3 times a week.</p><div class="yn-boxes"><label class="yn-label"><input type="checkbox"> Yes</label><label class="yn-label"><input type="checkbox"> No</label></div></div>
+          <div class="check-item"><p>I eat beans, peas, or lentils at least 3 times a week.</p><div class="yn-boxes"><label class="yn-label"><input type="checkbox"> Yes</label><label class="yn-label"><input type="checkbox"> No</label></div></div>
+          <div class="check-item"><p>I eat fish at least 3 times a week.</p><div class="yn-boxes"><label class="yn-label"><input type="checkbox"> Yes</label><label class="yn-label"><input type="checkbox"> No</label></div></div>
+          <div class="check-item"><p>I enjoy at least one meal a day with friends or family.</p><div class="yn-boxes"><label class="yn-label"><input type="checkbox"> Yes</label><label class="yn-label"><input type="checkbox"> No</label></div></div>
         </div>
       </div>
     </div>
@@ -530,6 +539,11 @@
         </div>
 
         <p>When nutrition messages meet culture with simple makeover! <strong>Traditional South Asian Foods</strong></p>
+
+        <div style="text-align:center; margin-top:2rem;">
+          <img src="../assets/images/pyramid.png" alt="Oldways Asian Heritage Diet Pyramid" style="max-width:100%; width:560px; border-radius:14px; box-shadow:0 4px 24px rgba(30,135,53,0.12);">
+          <p style="font-size:0.75rem; color:var(--text-l); margin-top:0.6rem;">Oldways Asian Heritage Diet Pyramid</p>
+        </div>
       </div>
     </div>
 
