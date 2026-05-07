@@ -12,9 +12,7 @@
     .page-hero {
       padding: 4rem 2rem 3.5rem;
       background: linear-gradient(130deg, var(--green) 0%, var(--orange) 100%);
-      color: #fff;
-      position: relative;
-      overflow: hidden;
+      color: #fff; position: relative; overflow: hidden;
     }
     .page-hero::after {
       content: ''; position: absolute; inset: 0;
@@ -34,67 +32,6 @@
     /* ── LAYOUT ── */
     .page-content { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 5rem; }
 
-    /* ── FOUNDER BLOCK ── */
-    .founder-block {
-      margin-top: 1rem;
-      background: linear-gradient(135deg, var(--green) 0%, var(--orange) 100%);
-      border-radius: 20px; padding: 3rem;
-      display: grid; grid-template-columns: 240px 1fr;
-      gap: 2.5rem; align-items: center;
-      margin-bottom: 4rem;
-      box-shadow: 0 8px 40px rgba(30,135,53,0.2);
-      position: relative; overflow: hidden;
-    }
-    .founder-block::before {
-      content: '';
-      position: absolute; top: -40px; right: -40px;
-      width: 200px; height: 200px;
-      background: rgba(255,193,7,0.1);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .founder-img-wrap {
-      position: relative;
-    }
-    .founder-img-wrap img {
-      width: 100%; aspect-ratio: 3/4;
-      object-fit: cover; object-position: top;
-      border-radius: 14px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-      display: block;
-    }
-    .founder-img-placeholder {
-      width: 100%; aspect-ratio: 3/4;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.15);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.5); font-size: 0.8rem;
-      border: 2px dashed rgba(255,255,255,0.3);
-    }
-    .founder-badge {
-      display: inline-block;
-      background: rgba(255,193,7,0.25);
-      border: 1px solid rgba(255,193,7,0.5);
-      color: var(--gold);
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      padding: 0.3rem 0.8rem; border-radius: 20px;
-      margin-bottom: 0.8rem;
-    }
-    .founder-text h2 {
-      font-family: 'Lora', serif; font-size: clamp(1.5rem, 2.5vw, 2rem);
-      font-weight: 600; color: #fff; margin-bottom: 0.3rem; line-height: 1.2;
-    }
-    .founder-text .role {
-      font-size: 0.82rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.4rem;
-    }
-    .founder-text p {
-      font-size: 0.97rem; line-height: 1.8;
-      color: rgba(255,255,255,0.88); font-weight: 300;
-    }
-
     /* ── SECTION LABEL ── */
     .section-label {
       font-size: 0.72rem; font-weight: 600;
@@ -104,93 +41,119 @@
     .section-heading {
       font-family: 'Lora', serif;
       font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-      color: var(--green); margin-bottom: 2rem;
+      color: var(--green); margin-bottom: 2.5rem;
     }
 
-    /* ── TEAM GRID ── */
+    /* ── MEMBER CARD ── */
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.6rem;
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      gap: 2rem;
       margin-bottom: 4rem;
     }
-    .team-card {
-      background: #fff; border-radius: 16px; overflow: hidden;
-      box-shadow: 0 2px 16px rgba(30,135,53,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex; flex-direction: column;
+
+    .member-card {
+      border-radius: 20px;
+      display: grid; grid-template-columns: 200px 1fr;
+      overflow: hidden;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.14);
+      transition: transform 0.35s, box-shadow 0.35s;
+      position: relative;
     }
-    .team-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 40px rgba(30,135,53,0.15);
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.2);
     }
-    .team-card-img-wrap {
-      width: 100%; height: 260px;
-      overflow: hidden; position: relative;
+    .member-card::before {
+      content: '';
+      position: absolute; top: -30px; right: -30px;
+      width: 120px; height: 120px;
+      background: rgba(255,193,7,0.12);
+      border-radius: 50%; pointer-events: none; z-index: 1;
     }
-    .team-card-img {
+
+    /* gradient variants */
+    .grad-1 { background: linear-gradient(135deg, #1e8735 0%, #e05f1a 100%); }
+    .grad-2 { background: linear-gradient(135deg, #1a5c7a 0%, #1e8735 100%); }
+    .grad-3 { background: linear-gradient(135deg, #6e9b2d 0%, #ffc107 100%); }
+    .grad-4 { background: linear-gradient(135deg, #e05f1a 0%, #6e9b2d 100%); }
+    .grad-5 { background: linear-gradient(135deg, #1e8735 0%, #1a5c7a 100%); }
+    .grad-6 { background: linear-gradient(135deg, #f09220 0%, #e05f1a 100%); }
+    .grad-7 { background: linear-gradient(135deg, #abbe30 0%, #1e8735 100%); }
+
+    /* photo side */
+    .member-img-wrap {
+      position: relative; overflow: hidden;
+    }
+    .member-img-wrap img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: top;
       display: block;
       transition: transform 0.6s ease, object-position 0.6s ease;
     }
-    .team-card:hover .team-card-img {
-      transform: scale(1.08);
+    .member-card:hover .member-img-wrap img {
+      transform: scale(1.07);
       object-position: center;
     }
-    .team-card-img-placeholder {
-      width: 100%; height: 260px;
-      background: linear-gradient(135deg, var(--green) 0%, var(--green-m) 100%);
+    .member-initials {
+      width: 100%; height: 100%; min-height: 220px;
       display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.15);
+      font-family: 'Lora', serif; font-size: 3.5rem; font-weight: 600;
+      color: rgba(255,255,255,0.85); letter-spacing: 0.05em;
     }
-    .initials-avatar {
-      font-family: 'Lora', serif; font-size: 4rem; font-weight: 600;
-      color: rgba(255,255,255,0.9); letter-spacing: 0.05em;
+
+    /* text side */
+    .member-text {
+      padding: 1.8rem 1.8rem 1.8rem 1.6rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 2;
     }
-    .team-card-body {
-      padding: 1.5rem 1.6rem 1.8rem;
-      display: flex; flex-direction: column; flex: 1;
-      border-top: 3px solid var(--orange);
+    .member-badge {
+      display: inline-block;
+      background: rgba(255,193,7,0.25);
+      border: 1px solid rgba(255,193,7,0.5);
+      color: var(--gold);
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.25rem 0.7rem; border-radius: 20px;
+      margin-bottom: 0.7rem; align-self: flex-start;
     }
-    .team-card-body h3 {
-      font-family: 'Lora', serif; font-size: 1.1rem;
-      color: var(--green); margin-bottom: 0.2rem; line-height: 1.3;
+    .member-text h2 {
+      font-family: 'Lora', serif; font-size: clamp(1rem, 1.8vw, 1.25rem);
+      font-weight: 600; color: #fff; margin-bottom: 0.25rem; line-height: 1.25;
     }
-    .team-card-body .role {
-      font-size: 0.72rem; font-weight: 700;
+    .member-text .role {
+      font-size: 0.68rem; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--orange-w); margin-bottom: 1rem;
+      color: var(--gold); margin-bottom: 1rem; line-height: 1.4;
     }
-    .team-card-body p {
-      font-size: 0.88rem; line-height: 1.75;
-      color: var(--text-m); font-weight: 300; flex: 1;
+    .member-text p {
+      font-size: 0.87rem; line-height: 1.75;
+      color: rgba(255,255,255,0.88); font-weight: 300;
     }
 
     /* ── CTA ── */
     .team-cta {
-      background: var(--cream);
-      border-radius: 16px; padding: 2.5rem 2.8rem;
-      text-align: center;
+      background: var(--cream); border-radius: 16px;
+      padding: 2.5rem 2.8rem; text-align: center;
     }
-    .team-cta h2 {
-      font-family: 'Lora', serif; font-size: 1.5rem;
-      color: var(--green); margin-bottom: 0.6rem;
-    }
-    .team-cta p {
-      font-size: 0.95rem; color: var(--text-m); font-weight: 300;
-      margin-bottom: 1.4rem; max-width: 480px; margin-left: auto; margin-right: auto;
-    }
+    .team-cta h2 { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--green); margin-bottom: 0.6rem; }
+    .team-cta p { font-size: 0.95rem; color: var(--text-m); font-weight: 300; margin-bottom: 1.4rem; max-width: 480px; margin-left: auto; margin-right: auto; }
 
     /* ── RESPONSIVE ── */
-    @media(max-width: 700px) {
-      .founder-block { grid-template-columns: 1fr; text-align: center; }
-      .founder-img-wrap { max-width: 220px; margin: 0 auto; }
-      .founder-img-wrap img, .founder-img-placeholder { aspect-ratio: 1/1; }
+    @media(max-width: 860px) {
+      .team-grid { grid-template-columns: 1fr; }
     }
     @media(max-width: 640px) {
       .page-content { padding: 2.5rem 1.2rem 4rem; }
-      .founder-block { padding: 2rem 1.5rem; }
-      .team-grid, .volunteer-grid { grid-template-columns: 1fr; }
+      .member-card { grid-template-columns: 160px 1fr; }
+      .member-text { padding: 1.4rem 1.2rem; }
+      .member-text h2 { font-size: 0.95rem; }
+    }
+    @media(max-width: 480px) {
+      .member-card { grid-template-columns: 1fr; }
+      .member-img-wrap img, .member-initials { height: 220px; min-height: 220px; }
     }
   </style>
 </head>
@@ -210,83 +173,96 @@
 
   <div class="page-content">
 
-    <!-- ── TEAM ── -->
     <span class="section-label reveal">Our Team</span>
     <h2 class="section-heading reveal">Meet the People Behind LHC</h2>
 
     <div class="team-grid">
 
-      <div class="team-card reveal delay-1">
-        <div class="team-card-img-wrap"><img class="team-card-img" src="../assets/images/kim.jpeg" alt="Dr. Kim Cheema"></div>
-        <div class="team-card-body">
-          <h3>Dr. Kim Cheema, MD FRCPC</h3>
+      <!-- Dr. Henry Nguyen -->
+      <div class="member-card grad-1 reveal delay-1">
+        <div class="member-img-wrap">
+          <img src="../assets/images/henry.png" alt="Dr. Henry Nguyen">
+        </div>
+        <div class="member-text">
+          <div class="member-badge">Founder</div>
+          <h2>Dr. Henry Nguyen, MD FRCPC</h2>
+          <div class="role">Founder &amp; Community Lead</div>
+          <p>Henry Nguyen is a hepatologist at the University of Calgary and the founder of Liver Health Connect. Born and raised in Calgary, he is dedicated to advancing liver health through equitable access to education and resources, in service of the well-being of all members of the community he calls home.</p>
+        </div>
+      </div>
+
+      <!-- Dr. Kim Cheema -->
+      <div class="member-card grad-2 reveal delay-2">
+        <div class="member-img-wrap">
+          <img src="../assets/images/kim.jpeg" alt="Dr. Kim Cheema">
+        </div>
+        <div class="member-text">
+          <h2>Dr. Kim Cheema, MD FRCPC</h2>
           <div class="role">Community Partnerships and Research Liaison</div>
           <p>Dr. Cheema is a nephrologist who volunteers with Liver Health Connect. She previously served as Site Lead at the AHS Richmond Road Diagnostic Centre, where she worked across many specialties to support patient services. At LHC, she helps guide partnerships with universities, health organizations, and community groups, ensuring they reflect and strengthen LHC's mission of education, equity, and service.</p>
         </div>
       </div>
 
-      <div class="team-card reveal delay-2">
-        <div class="team-card-img-wrap"><img class="team-card-img" src="../assets/images/george.jpeg" alt="George Tadros"></div>
-        <div class="team-card-body">
-          <h3>George Tadros</h3>
+      <!-- George Tadros -->
+      <div class="member-card grad-3 reveal delay-3">
+        <div class="member-img-wrap">
+          <img src="../assets/images/george.jpeg" alt="George Tadros">
+        </div>
+        <div class="member-text">
+          <h2>George Tadros</h2>
           <div class="role">Community Outreach and Digital Engagement Lead</div>
           <p>George Tadros is currently enrolled at the University of Calgary Cumming School of Medicine. George plays a crucial role in connecting with our communities and managing our digital presence. His dedication to developing social media accounts, maintaining our website, and building outreach bridges helps ensure that Liver Health Connect's message reaches and resonates widely. We deeply appreciate his energy and creativity in driving our engagement efforts.</p>
         </div>
       </div>
 
-      <div class="team-card reveal delay-3">
-        <div class="team-card-img-wrap"><img class="team-card-img" src="../assets/images/Joanna.jpg" alt="Dr. Joanna Dionne"></div>
-        <div class="team-card-body">
-          <h3>Dr. Joanna Dionne, MD FRCPC</h3>
+      <!-- Dr. Joanna Dionne -->
+      <div class="member-card grad-4 reveal delay-4">
+        <div class="member-img-wrap">
+          <img src="../assets/images/Joanna.jpg" alt="Dr. Joanna Dionne">
+        </div>
+        <div class="member-text">
+          <h2>Dr. Joanna Dionne, MD FRCPC</h2>
           <div class="role">Creative Partner for Social Media</div>
           <p>Joanna is an Intensive Care Physician from McMaster University. Joanna's visionary input has been instrumental in shaping our social media campaigns. As a Creative Partner, her fresh ideas and thoughtful suggestions have helped bring new energy and focus to our outreach efforts. We are grateful for her inspiring collaboration and invaluable contributions.</p>
         </div>
       </div>
 
-      <div class="team-card reveal delay-4">
-        <div class="team-card-img-wrap"><img class="team-card-img" src="../assets/images/julia.jpg" alt="Julia Johnston"></div>
-        <div class="team-card-body">
-          <h3>Julia Johnston</h3>
+      <!-- Julia Johnston -->
+      <div class="member-card grad-5 reveal delay-5">
+        <div class="member-img-wrap">
+          <img src="../assets/images/julia.jpg" alt="Julia Johnston">
+        </div>
+        <div class="member-text">
+          <h2>Julia Johnston</h2>
           <div class="role">Administrative Staff</div>
           <p>Julia plays an essential role behind the scenes by organizing meetings with community leaders, coordinating logistics, and helping procure important resources for our outreach events. Her dedication and organizational skills keep Liver Health Connect running smoothly and connected to the community. We truly appreciate her invaluable support.</p>
         </div>
       </div>
 
-      <div class="team-card reveal delay-5">
-        <div class="team-card-img-placeholder">
-          <span class="initials-avatar">JN</span>
+      <!-- Jimmie Nguyen -->
+      <div class="member-card grad-6 reveal delay-5">
+        <div class="member-img-wrap">
+          <div class="member-initials">JN</div>
         </div>
-        <div class="team-card-body">
-          <h3>Jimmie Nguyen</h3>
+        <div class="member-text">
+          <h2>Jimmie Nguyen</h2>
           <div class="role">Logistics Lead</div>
           <p>Jimmie is an Environmental Scientist with expertise in technical project coordination across Western Canada. At LHC, he applies his strong organizational skills and experience to lead event logistics, ensuring our outreach efforts are efficient and well-executed.</p>
         </div>
       </div>
 
-      <div class="team-card reveal delay-5">
-        <div class="team-card-img-placeholder">
-          <span class="initials-avatar">VA</span>
+      <!-- Virve Aljas -->
+      <div class="member-card grad-7 reveal delay-5">
+        <div class="member-img-wrap">
+          <div class="member-initials">VA</div>
         </div>
-        <div class="team-card-body">
-          <h3>Virve Aljas</h3>
+        <div class="member-text">
+          <h2>Virve Aljas</h2>
           <div class="role">Patient Partner &amp; Visual Branding Support</div>
           <p>Virve, as a patient partner, has generously lent her creative talents to digitize our logo and design materials for our outreach tents. Her hands-on support has been key in bringing our visual identity to life and strengthening our community presence. We deeply appreciate her meaningful partnership.</p>
         </div>
       </div>
 
-    </div>
-
-    <!-- ── FOUNDER ── -->
-    <div class="founder-block reveal">
-      <div class="founder-img-wrap">
-        <img src="../assets/images/henry.png" alt="Dr. Henry Nguyen">
-      </div>
-      <div class="founder-text">
-        <div class="founder-badge">Founder</div>
-        <h2>Dr. Henry Nguyen, MD FRCPC</h2>
-        <div class="role">Founder &amp; Community Lead</div>
-        <p>Henry Nguyen is a hepatologist at the University of Calgary and the founder of Liver Health Connect. Born and raised in Calgary, he is dedicated to advancing liver health through equitable access to education and resources, in service of the well-being of all members of the community he calls home.</p>
-      </div>
     </div>
 
     <!-- ── CTA ── -->
@@ -309,7 +285,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     revealEls.forEach(el => io.observe(el));
   </script>
-
   <script src="../components.js"></script>
 
 </body>
