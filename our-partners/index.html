@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Our Partners – Liver Health Connect</title>
+  <link rel="stylesheet" href="../shared.css">
+  <style>
+    body { padding-top: var(--nav-h); }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 4rem 2rem 3.5rem;
+      background: linear-gradient(135deg, var(--green-m) 0%, var(--green) 60%, #1a4a2a 100%);
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; bottom: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(255,193,7,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .breadcrumb { font-size:0.78rem; color:rgba(255,255,255,0.7); margin-bottom:1rem; display:flex; align-items:center; gap:0.4rem; }
+    .page-hero .breadcrumb a { color:rgba(255,255,255,0.75); text-decoration:none; }
+    .page-hero .breadcrumb a:hover { color:#fff; }
+    .page-hero .breadcrumb span { opacity:0.5; }
+    .page-hero h1 { font-family:'Lora',serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:600; line-height:1.2; }
+    .page-hero .subtitle { margin-top:0.8rem; font-size:1rem; font-weight:300; color:rgba(255,255,255,0.82); max-width:600px; line-height:1.65; }
+
+    /* ── LAYOUT ── */
+    .page-content { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+
+    /* ── SECTION DIVIDER ── */
+    .sdiv { display:flex; align-items:center; gap:1rem; margin-bottom:2.5rem; }
+    .sdiv .tag { font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--orange-w); white-space:nowrap; }
+    .sdiv .line { flex:1; height:1px; background:linear-gradient(to right, rgba(30,135,53,0.2), transparent); }
+
+    /* ── CORPORATE PARTNERS ── */
+    .corporate-section { margin-bottom: 5rem; }
+    .corporate-section h2 { font-family:'Lora',serif; font-size:clamp(1.4rem,2.5vw,1.9rem); color:var(--green); margin-bottom:0.5rem; }
+    .corporate-section > p { font-size:0.97rem; line-height:1.75; color:var(--text-m); font-weight:300; max-width:700px; margin-bottom:2.5rem; }
+
+    .partner-feature {
+      display: grid; grid-template-columns: 300px 1fr;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 4px 32px rgba(30,135,53,0.1);
+      margin-bottom: 2rem;
+    }
+    .partner-feature-img {
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2.5rem; min-height: 260px;
+    }
+    .partner-feature-img img { max-width: 100%; max-height: 140px; object-fit: contain; }
+    .partner-feature-img .logo-placeholder {
+      font-family: 'Lora', serif; font-size: 1.4rem; font-weight: 600;
+      color: var(--green); text-align: center; line-height: 1.3;
+    }
+    .partner-feature-body {
+      background: #fff; padding: 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+      border-left: 4px solid var(--green);
+    }
+    .partner-feature-body .partner-type {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--orange-w); margin-bottom: 0.6rem;
+    }
+    .partner-feature-body h3 { font-family:'Lora',serif; font-size:1.35rem; color:var(--green); margin-bottom:0.8rem; }
+    .partner-feature-body p { font-size:0.97rem; line-height:1.78; color:var(--text-m); font-weight:300; margin-bottom:0.8rem; }
+    .partner-feature-body p:last-child { margin-bottom:0; }
+    .partner-feature-body a { color:var(--green); font-weight:600; }
+    .partner-feature-body a:hover { color:var(--orange); }
+
+    /* coffee science callout */
+    .coffee-callout {
+      background: linear-gradient(135deg, #2c1810 0%, #5c3420 100%);
+      border-radius: 14px; padding: 1.6rem 2rem;
+      display: flex; align-items: center; gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+    .coffee-callout .icon { font-size: 2rem; flex-shrink: 0; }
+    .coffee-callout p { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.85); font-weight: 300; margin: 0; }
+    .coffee-callout a { color: var(--gold); font-weight: 600; }
+
+    /* Allison Associates — reversed colour */
+    .partner-feature.allison .partner-feature-img { background: #1a2a3a; }
+    .partner-feature.allison .partner-feature-body { border-left-color: var(--orange); }
+    .partner-feature.allison .partner-feature-body h3 { color: var(--orange); }
+
+    /* ── COMMUNITY PARTNERS ── */
+    .community-section { margin-bottom: 5rem; }
+    .community-section h2 { font-family:'Lora',serif; font-size:clamp(1.4rem,2.5vw,1.9rem); color:var(--green); margin-bottom:0.5rem; }
+    .community-section > p { font-size:0.97rem; line-height:1.75; color:var(--text-m); font-weight:300; max-width:700px; margin-bottom:2.5rem; }
+
+    .community-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .community-card {
+      background: #fff; border-radius: 16px;
+      padding: 2rem 1.5rem;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 1rem;
+      box-shadow: 0 2px 14px rgba(30,135,53,0.08);
+      border-top: 3px solid var(--green-m);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .community-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(30,135,53,0.14); }
+    .community-card .logo-wrap {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .community-card .logo-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+    .community-card .logo-wrap .initials {
+      font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 600; color: var(--green);
+    }
+    .community-card h3 { font-family:'Lora',serif; font-size:0.97rem; color:var(--green); line-height:1.3; margin:0; }
+
+    /* ── WORK WITH US CTA ── */
+    .work-cta {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-m) 100%);
+      border-radius: 20px; padding: 3rem;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 2rem;
+    }
+    .work-cta h2 { font-family:'Lora',serif; font-size:1.6rem; color:#fff; margin-bottom:0.5rem; }
+    .work-cta p { font-size:1rem; color:rgba(255,255,255,0.85); font-weight:300; line-height:1.65; }
+    .work-cta .btn-primary { color:var(--black); white-space:nowrap; }
+
+    @media(max-width:860px){
+      .partner-feature { grid-template-columns: 1fr; }
+      .partner-feature-img { min-height: 180px; }
+      .work-cta { grid-template-columns: 1fr; text-align: center; }
+    }
+    @media(max-width:640px){
+      .page-content { padding: 3rem 1.2rem 5rem; }
+      .community-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="https://gstadros.github.io/LHC-website-english/index.html">Home</a>
+      <span>›</span><span>Our Partners</span>
+    </div>
+    <h1>Our Partners</h1>
+    <p class="subtitle">None of what we do is possible alone. We are grateful to our corporate sponsors and community partners who share our commitment to liver health education and outreach.</p>
+  </div>
+
+  <div class="page-content">
+
+    <!-- ── CORPORATE ── -->
+    <div class="corporate-section">
+      <div class="sdiv reveal"><span class="tag">Corporate Partners</span><div class="line"></div></div>
+      <h2 class="reveal">For Community</h2>
+      <p class="reveal">Our corporate partners go beyond financial support — they share our belief that healthier communities start with better information.</p>
+
+      <!-- Rosso -->
+      <div class="partner-feature reveal">
+        <div class="partner-feature-img">
+          <div class="logo-placeholder">☕<br>Rosso Coffee<br>Roasters</div>
+        </div>
+        <div class="partner-feature-body">
+          <div class="partner-type">Corporate Partner</div>
+          <h3>Rosso Coffee Roasters</h3>
+          <p>We're thrilled to partner with Rosso Coffee Roasters, whose generous donation of premium beans and drink vouchers is fueling more than just our festival fun, it's fueling better health. Coffee isn't just a beloved ritual; it's also been linked to meaningful liver health benefits.</p>
+          <p>Multiple studies have shown that regular coffee consumption may reduce the risk of liver disease, slow the progression of fibrosis, and even lower the chances of developing liver cancer.</p>
+          <p>That's right, your daily cup could be doing more than you think.</p>
+          <div class="coffee-callout">
+            <div class="icon">🔬</div>
+            <p>Want to dive into the science? Check out these peer-reviewed studies: <a href="https://bmcpublichealth.biomedcentral.com/counter/pdf/10.1186/s12889-021-10991-7.pdf" target="_blank" rel="noopener">[1]</a> <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/liv.12304" target="_blank" rel="noopener">[2]</a></p>
+          </div>
+          <p style="margin-top:1rem;">Thanks to Rosso, we're able to share this goodness, one cup, one voucher, one prize at a time. Here's to community, wellness, and the power of a great brew.</p>
+        </div>
+      </div>
+
+      <!-- Allison Associates -->
+      <div class="partner-feature allison reveal">
+        <div class="partner-feature-img">
+          <div class="logo-placeholder" style="color:#a0b8cc;">⚖️<br>Allison<br>Associates</div>
+        </div>
+        <div class="partner-feature-body">
+          <div class="partner-type">Corporate Partner</div>
+          <h3>Allison Associates</h3>
+          <p>Thanks to help from Allison Associates and their legal expertise, LHC was officially recognized as a non-profit that aims to serve its community and spread awareness about liver health.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── COMMUNITY ── -->
+    <div class="community-section">
+      <div class="sdiv reveal"><span class="tag">Community Partners</span><div class="line"></div></div>
+      <h2 class="reveal">Community Partners</h2>
+      <p class="reveal">These organizations have opened their doors and welcomed us into their communities, making our outreach possible across Calgary and beyond.</p>
+
+      <div class="community-grid">
+        <div class="community-card reveal delay-1">
+          <div class="logo-wrap"><div class="initials">MF</div></div>
+          <h3>Mexi-Fest</h3>
+        </div>
+        <div class="community-card reveal delay-2">
+          <div class="logo-wrap"><div class="initials">CKA</div></div>
+          <h3>Calgary Korean Association</h3>
+        </div>
+        <div class="community-card reveal delay-3">
+          <div class="logo-wrap"><div class="initials">CVCA</div></div>
+          <h3>Calgary Vietnamese Canadian Association</h3>
+        </div>
+        <div class="community-card reveal delay-4">
+          <div class="logo-wrap"><div class="initials">CCECA</div></div>
+          <h3>Calgary Chinese Elderly Citizens' Association</h3>
+        </div>
+        <div class="community-card reveal delay-5">
+          <div class="logo-wrap"><div class="initials">CCN</div></div>
+          <h3>Calgary Centre for Newcomers</h3>
+        </div>
+        <div class="community-card reveal delay-5">
+          <div class="logo-wrap"><div class="initials">AHS</div></div>
+          <h3>Aakom-Kiyii Health Services – Piikani Nation</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WORK WITH US ── -->
+    <div class="work-cta reveal">
+      <div>
+        <h2>Want to work with us?</h2>
+        <p>Please let us know your email and/or phone number and we will be in touch!</p>
+      </div>
+      <a href="https://gstadros.github.io/LHC-website-english/contact-us/index.html" class="btn btn-primary">Get in Touch</a>
+    </div>
+
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  </script>
+  <script src="../components.js"></script>
+</body>
+</html>

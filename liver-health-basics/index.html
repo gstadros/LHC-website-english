@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Liver Health Basics – Liver Health Connect</title>
+  <link rel="stylesheet" href="../shared.css">
+  <style>
+    body { padding-top: var(--nav-h); }
+
+    /* ── HERO — dark, clinical ── */
+    .page-hero {
+      padding: 5rem 2rem 4.5rem;
+      background: linear-gradient(160deg, #0a2a14 0%, #1e8735 60%, #2a4a1a 100%);
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; top: 0; right: 0; bottom: 0; left: 50%;
+      background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&q=80') center/cover no-repeat;
+      opacity: 0.12; pointer-events: none;
+    }
+    .page-hero .breadcrumb { font-size:0.78rem; color:rgba(255,255,255,0.6); margin-bottom:1rem; display:flex; align-items:center; gap:0.4rem; position:relative; z-index:2; }
+    .page-hero .breadcrumb a { color:rgba(255,255,255,0.7); text-decoration:none; }
+    .page-hero .breadcrumb a:hover { color:#fff; }
+    .page-hero .breadcrumb span { opacity:0.4; }
+    .page-hero h1 { font-family:'Lora',serif; font-size:clamp(2rem,5vw,3.4rem); font-weight:600; line-height:1.2; position:relative; z-index:2; }
+    .page-hero .subtitle { margin-top:1rem; font-size:1rem; font-weight:300; color:rgba(255,255,255,0.78); max-width:580px; line-height:1.7; position:relative; z-index:2; }
+
+    /* ── LAYOUT ── */
+    .page-content { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+
+    /* ── INTRO FEATURE ── */
+    .liver-intro {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 6px 40px rgba(0,0,0,0.12);
+      margin-bottom: 5rem;
+    }
+    .liver-intro-text {
+      background: var(--text); /* near-black */
+      padding: 3.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .liver-intro-text .eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+    .liver-intro-text h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.5rem,2.5vw,2rem);
+      color: #fff; margin-bottom: 1.4rem; line-height: 1.25;
+    }
+    .liver-intro-text p {
+      font-size: 1rem; line-height: 1.82; color: rgba(255,255,255,0.78); font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .liver-intro-text p:last-child { margin-bottom: 0; }
+    .liver-intro-visual {
+      background:
+        linear-gradient(180deg, rgba(10,42,20,0.6) 0%, rgba(30,135,53,0.4) 100%),
+        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80') center/cover no-repeat;
+    }
+
+    /* ── SECTION LABEL ── */
+    .sdiv { display:flex; align-items:center; gap:1rem; margin-bottom:2.5rem; }
+    .sdiv .tag { font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--orange-w); white-space:nowrap; }
+    .sdiv .line { flex:1; height:1px; background:linear-gradient(to right, rgba(30,135,53,0.2), transparent); }
+
+    /* ── DISEASE INTRO ── */
+    .disease-intro {
+      margin-bottom: 3rem;
+    }
+    .disease-intro h2 { font-family:'Lora',serif; font-size:clamp(1.4rem,2.5vw,1.9rem); color:var(--green); margin-bottom:0.6rem; }
+    .disease-intro p { font-size:1rem; line-height:1.75; color:var(--text-m); font-weight:300; max-width:750px; }
+
+    /* ── DISEASE CARDS ── */
+    .disease-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.4rem;
+      margin-bottom: 5rem;
+    }
+
+    .disease-card {
+      border-radius: 16px; overflow: hidden;
+      text-decoration: none; display: block;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      transition: transform 0.35s, box-shadow 0.35s;
+      position: relative;
+    }
+    .disease-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(0,0,0,0.15); }
+
+    .disease-card-header {
+      padding: 1.8rem 1.8rem 1.4rem;
+      position: relative;
+    }
+    .disease-card-header .number {
+      position: absolute; top: 1rem; right: 1.4rem;
+      font-family: 'Lora', serif; font-size: 3.5rem; font-weight: 600;
+      color: rgba(255,255,255,0.12); line-height: 1;
+    }
+    .disease-card-header .icon { font-size: 1.8rem; margin-bottom: 0.7rem; display: block; }
+    .disease-card-header h3 { font-family:'Lora',serif; font-size:1.15rem; color:#fff; margin-bottom:0.2rem; line-height:1.3; }
+    .disease-card-header .aka { font-size:0.72rem; color:rgba(255,255,255,0.6); font-weight:300; line-height:1.4; }
+
+    .disease-card-body {
+      background: #fff; padding: 1.4rem 1.8rem 1.8rem;
+      border-top: none;
+    }
+    .disease-card-body p { font-size:0.93rem; line-height:1.75; color:var(--text-m); font-weight:300; margin-bottom:1rem; }
+    .disease-card-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; font-weight: 700; text-decoration: none;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      transition: gap 0.2s;
+    }
+    .disease-card:hover .disease-card-link { gap: 0.7rem; }
+
+    /* gradient headers per disease */
+    .dc-1 .disease-card-header { background: linear-gradient(135deg, #1e5c2a 0%, #2a8f40 100%); }
+    .dc-2 .disease-card-header { background: linear-gradient(135deg, #7a1a1a 0%, #c0392b 100%); }
+    .dc-3 .disease-card-header { background: linear-gradient(135deg, #1a4a7a 0%, #2980b9 100%); }
+    .dc-4 .disease-card-header { background: linear-gradient(135deg, #6a1a7a 0%, #8e44ad 100%); }
+    .dc-5 .disease-card-header { background: linear-gradient(135deg, #7a4a1a 0%, #d35400 100%); }
+    .dc-6 .disease-card-header { background: linear-gradient(135deg, #2a2a2a 0%, #555 100%); }
+
+    .dc-1 .disease-card-link { color: #2a8f40; }
+    .dc-2 .disease-card-link { color: #c0392b; }
+    .dc-3 .disease-card-link { color: #2980b9; }
+    .dc-4 .disease-card-link { color: #8e44ad; }
+    .dc-5 .disease-card-link { color: #d35400; }
+    .dc-6 .disease-card-link { color: #555; }
+
+    /* ── CIRRHOSIS FEATURE ── */
+    .cirrhosis-feature {
+      background: var(--text); border-radius: 20px;
+      padding: 3rem; margin-bottom: 5rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.15);
+    }
+    .cirrhosis-feature h2 { font-family:'Lora',serif; font-size:clamp(1.4rem,2.5vw,1.9rem); color:#fff; margin-bottom:1rem; }
+    .cirrhosis-feature p { font-size:0.97rem; line-height:1.8; color:rgba(255,255,255,0.78); font-weight:300; margin-bottom:1rem; }
+    .cirrhosis-feature a.cirrhosis-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--gold); font-weight: 600; text-decoration: none;
+      font-size: 0.95rem; border-bottom: 1px solid rgba(255,193,7,0.4);
+      padding-bottom: 0.1rem; transition: border-color 0.2s;
+    }
+    .cirrhosis-feature a.cirrhosis-link:hover { border-color: var(--gold); }
+    .cirrhosis-visual {
+      background:
+        linear-gradient(160deg, rgba(0,0,0,0.5) 0%, rgba(30,135,53,0.3) 100%),
+        url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=700&q=80') center/cover no-repeat;
+      border-radius: 14px; height: 280px;
+    }
+
+    /* ── CTA ── */
+    .basics-cta {
+      background: linear-gradient(135deg, var(--green) 0%, var(--orange) 100%);
+      border-radius: 20px; padding: 3rem; text-align: center;
+    }
+    .basics-cta h2 { font-family:'Lora',serif; font-size:1.6rem; color:#fff; margin-bottom:0.6rem; }
+    .basics-cta p { font-size:0.97rem; color:rgba(255,255,255,0.85); font-weight:300; margin-bottom:1.6rem; max-width:520px; margin-left:auto; margin-right:auto; }
+
+    @media(max-width:860px){
+      .liver-intro, .cirrhosis-feature { grid-template-columns: 1fr; }
+      .liver-intro-visual { height: 280px; }
+      .cirrhosis-visual { height: 200px; }
+    }
+    @media(max-width:640px){
+      .page-content { padding: 3rem 1.2rem 5rem; }
+      .disease-grid { grid-template-columns: 1fr; }
+      .liver-intro-text, .cirrhosis-feature { padding: 2rem 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="https://gstadros.github.io/LHC-website-english/index.html">Home</a>
+      <span>›</span><span>Liver Health Basics</span>
+    </div>
+    <h1>Liver Health Basics</h1>
+    <p class="subtitle">Your liver is one of your most vital organs — and one of the most overlooked. Learn what it does, how disease develops, and how to protect it.</p>
+  </div>
+
+  <div class="page-content">
+
+    <!-- ── YOUR LIVER ── -->
+    <div class="liver-intro reveal">
+      <div class="liver-intro-text">
+        <div class="eyebrow">Your Liver &amp; Why It Matters</div>
+        <h2>Your Liver and Why it MATTERS</h2>
+        <p>Our liver is a hardworking organ located in the upper right side of your abdomen, just under your ribs. It acts like your body's filter and factory, clearing out toxins, storing nutrients, producing vital proteins, and helping you digest food. It's essential for your overall health.</p>
+        <p>The challenge is that when the liver is injured, whether from fat buildup, alcohol, viruses, or other causes, it often shows no warning signs. You might feel completely fine even as damage slowly builds over time. That's why chronic liver disease is often called a <strong style="color:var(--gold)">"silent illness."</strong></p>
+        <p>When the liver gets hurt repeatedly, it tries to heal itself — just like your skin does when you get a cut. Imagine scraping the same spot on your hand again and again. At first, your body heals, but over time, a scar forms. The liver does something similar: repeated injury leads to scarring, known as fibrosis. If the scarring becomes severe and widespread, the liver becomes stiff and struggles to do its vital work — this advanced stage is called cirrhosis.</p>
+        <p>Unfortunately, severe cirrhosis cannot be reversed. In end-stage liver disease, when the liver can no longer keep up with the body's needs, a liver transplant may be the only life-saving option. That's why early detection and care are so important.</p>
+        <p>At Liver Health Connect, we're here to support you with clear information about liver diseases, ways to protect your liver, and steps you can take to stay healthy, even if you feel perfectly fine today.</p>
+      </div>
+      <div class="liver-intro-visual"></div>
+    </div>
+
+    <!-- ── DISEASE TYPES ── -->
+    <div class="sdiv reveal"><span class="tag">Types of Liver Disease</span><div class="line"></div></div>
+    <div class="disease-intro reveal">
+      <h2>What are the different types of liver disease?</h2>
+      <p>Read below for quick snapshots of each type of liver disease, or click on the title of each of them to read more.</p>
+    </div>
+
+    <div class="disease-grid">
+
+      <div class="disease-card dc-1 reveal delay-1">
+        <div class="disease-card-header">
+          <span class="number">01</span>
+          <span class="icon">🫀</span>
+          <h3>Fatty Liver Disease</h3>
+          <div class="aka">Also known as MASLD / MASH</div>
+        </div>
+        <div class="disease-card-body">
+          <p>This liver disease is mainly caused by fat deposition in the liver, which can be caused by unhealthy diets, lack of exercise, or uncontrolled diabetes.</p>
+          <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/fatty-liver-disease/index.html" class="disease-card-link">Read more →</a>
+        </div>
+      </div>
+
+      <div class="disease-card dc-2 reveal delay-2">
+        <div class="disease-card-header">
+          <span class="number">02</span>
+          <span class="icon">🍷</span>
+          <h3>Alcohol-Related Liver Disease</h3>
+        </div>
+        <div class="disease-card-body">
+          <p>Alcohol is toxic to the liver, and long-term use of alcohol can cause the liver to become inflamed and diseased.</p>
+          <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/alcohol-related-liver-disease/index.html" class="disease-card-link">Read more →</a>
+        </div>
+      </div>
+
+      <div class="disease-card dc-3 reveal delay-3">
+        <div class="disease-card-header">
+          <span class="number">03</span>
+          <span class="icon">🦠</span>
+          <h3>Viral Hepatitis</h3>
+          <div class="aka">Hepatitis B &amp; Hepatitis C</div>
+        </div>
+        <div class="disease-card-body">
+          <p>While many viruses can infect the liver and cause short-term illness, the two viruses that can cause long-term (chronic) liver disease are Hepatitis B and Hepatitis C viruses.</p>
+          <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/viral-hepatitis/index.html" class="disease-card-link">Read more →</a>
+        </div>
+      </div>
+
+      <div class="disease-card dc-4 reveal delay-4">
+        <div class="disease-card-header">
+          <span class="number">04</span>
+          <span class="icon">🛡️</span>
+          <h3>Autoimmune Liver Diseases</h3>
+        </div>
+        <div class="disease-card-body">
+          <p>Autoimmune liver diseases is a group of 3 diseases where the body attacks its own best organ, the liver.</p>
+          <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/autoimmune-liver-diseases/index.html" class="disease-card-link">Read more →</a>
+        </div>
+      </div>
+
+      <div class="disease-card dc-5 reveal delay-5">
+        <div class="disease-card-header">
+          <span class="number">05</span>
+          <span class="icon">⚠️</span>
+          <h3>Liver Cancer</h3>
+        </div>
+        <div class="disease-card-body">
+          <p>Any of the above liver diseases can increase the risk of developing liver cancer.</p>
+          <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/liver-cancer/index.html" class="disease-card-link">Read more →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── CIRRHOSIS FEATURE ── -->
+    <div class="cirrhosis-feature reveal">
+      <div>
+        <h2>Cirrhosis</h2>
+        <p>Cirrhosis is an unfortunate irreversible advanced stage of widespread scarring where the liver becomes stiff and is unable to do its job or heal anymore.</p>
+        <p><a href="http://cirrhosiscare.ca" target="_blank" rel="noopener" class="cirrhosis-link">CirrhosisCare.ca →</a> is a really valuable resource to learn more about liver cirrhosis and its care.</p>
+        <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/cirrhosis/index.html" class="cirrhosis-link" style="margin-top:1rem;display:inline-flex;">Learn more about Cirrhosis →</a>
+      </div>
+      <div class="cirrhosis-visual"></div>
+    </div>
+
+    <!-- ── CTA ── -->
+    <div class="basics-cta reveal">
+      <h2>Questions about your liver health?</h2>
+      <p>Our team is here to help. Reach out and we'll point you in the right direction.</p>
+      <a href="https://gstadros.github.io/LHC-website-english/pathways-to-care/index.html" class="btn btn-primary" style="margin-right:0.8rem;">Pathways to Care</a>
+      <a href="https://gstadros.github.io/LHC-website-english/contact-us/index.html" class="btn btn-ghost">Contact Us</a>
+    </div>
+
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  </script>
+  <script src="../components.js"></script>
+</body>
+</html>

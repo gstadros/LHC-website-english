@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Community Events & Outreach – Liver Health Connect</title>
+  <link rel="stylesheet" href="../shared.css">
+  <style>
+    body { padding-top: var(--nav-h); }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 4.5rem 2rem 4rem;
+      background:
+        linear-gradient(160deg, rgba(224,95,26,0.88) 0%, rgba(30,135,53,0.75) 100%),
+        url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80') center/cover no-repeat;
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .page-hero .breadcrumb { font-size:0.78rem; color:rgba(255,255,255,0.7); margin-bottom:1rem; display:flex; align-items:center; gap:0.4rem; }
+    .page-hero .breadcrumb a { color:rgba(255,255,255,0.75); text-decoration:none; }
+    .page-hero .breadcrumb a:hover { color:#fff; }
+    .page-hero .breadcrumb span { opacity:0.5; }
+    .page-hero h1 { font-family:'Lora',serif; font-size:clamp(2rem,5vw,3.4rem); font-weight:600; line-height:1.2; max-width:700px; }
+    .page-hero .subtitle { margin-top:1rem; font-size:1.05rem; font-weight:300; color:rgba(255,255,255,0.88); max-width:580px; line-height:1.65; }
+
+    /* ── LAYOUT ── */
+    .page-content { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+
+    /* ── UPCOMING ── */
+    .upcoming-banner {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--orange-w) 100%);
+      border-radius: 20px; padding: 3rem;
+      display: flex; align-items: center; gap: 2rem;
+      margin-bottom: 5rem;
+      box-shadow: 0 6px 32px rgba(224,95,26,0.2);
+    }
+    .upcoming-icon { font-size: 3.5rem; flex-shrink: 0; }
+    .upcoming-text h2 { font-family:'Lora',serif; font-size:clamp(1.5rem,2.5vw,2rem); color:var(--black); margin-bottom:0.5rem; }
+    .upcoming-text p { font-size:1rem; color:rgba(0,0,0,0.65); font-weight:300; line-height:1.65; }
+
+    /* ── SECTION DIVIDER ── */
+    .sdiv { display:flex; align-items:center; gap:1rem; margin-bottom:3rem; }
+    .sdiv .tag { font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--orange-w); white-space:nowrap; }
+    .sdiv .line { flex:1; height:1px; background:linear-gradient(to right, rgba(224,95,26,0.3), transparent); }
+    .sdiv h2 { font-family:'Lora',serif; font-size:clamp(1.4rem,2.5vw,1.9rem); color:var(--green); white-space:nowrap; margin-left:0.5rem; }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--orange), var(--green-m), var(--gold));
+      border-radius: 3px;
+    }
+
+    .event-block {
+      position: relative; margin-bottom: 3.5rem;
+    }
+    .event-block::before {
+      content: '';
+      position: absolute; left: -2.85rem; top: 1.8rem;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--orange); border: 3px solid #fff;
+      box-shadow: 0 0 0 3px var(--orange);
+    }
+    .event-block:nth-child(2n)::before { background: var(--green); box-shadow: 0 0 0 3px var(--green); }
+    .event-block:nth-child(3n)::before { background: var(--gold); box-shadow: 0 0 0 3px var(--gold); }
+
+    .event-date {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--orange-w); margin-bottom: 0.4rem;
+    }
+    .event-card {
+      background: #fff; border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(30,135,53,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .event-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(30,135,53,0.14); }
+
+    .event-card-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .event-card-inner.single { grid-template-columns: 1fr; }
+
+    .event-photos {
+      display: grid; gap: 2px;
+    }
+    .event-photos.two { grid-template-columns: 1fr 1fr; }
+    .event-photos.one { grid-template-columns: 1fr; }
+
+    .event-photo {
+      overflow: hidden; position: relative;
+    }
+    .event-photo img {
+      width: 100%; height: 220px; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .event-card:hover .event-photo img { transform: scale(1.04); }
+
+    .event-body {
+      padding: 2rem 2.2rem;
+      display: flex; flex-direction: column; justify-content: center;
+      border-left: 4px solid var(--orange);
+    }
+    .event-block:nth-child(2n) .event-body { border-left-color: var(--green); }
+    .event-block:nth-child(3n) .event-body { border-left-color: var(--gold); }
+
+    .event-body h3 { font-family:'Lora',serif; font-size:1.25rem; color:var(--green); margin-bottom:0.5rem; }
+    .event-body p { font-size:0.95rem; line-height:1.75; color:var(--text-m); font-weight:300; margin-bottom:0.8rem; }
+    .event-body p:last-child { margin-bottom:0; }
+    .event-body a { color:var(--green); font-weight:600; }
+
+    /* winner badge */
+    .winner-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: linear-gradient(135deg, var(--gold), var(--orange-w));
+      color: var(--black); font-size: 0.75rem; font-weight: 700;
+      padding: 0.3rem 0.8rem; border-radius: 20px; margin-bottom: 0.8rem;
+      align-self: flex-start;
+    }
+
+    /* ── CTA ── */
+    .events-cta {
+      background: var(--cream); border-radius: 20px;
+      padding: 3rem; text-align: center; margin-top: 2rem;
+    }
+    .events-cta h2 { font-family:'Lora',serif; font-size:1.5rem; color:var(--green); margin-bottom:0.6rem; }
+    .events-cta p { font-size:0.97rem; color:var(--text-m); font-weight:300; margin-bottom:1.5rem; max-width:500px; margin-left:auto; margin-right:auto; }
+
+    @media(max-width:860px){
+      .event-card-inner { grid-template-columns: 1fr; }
+      .event-body { border-left: none; border-top: 4px solid var(--orange); }
+      .upcoming-banner { flex-direction: column; text-align: center; }
+    }
+    @media(max-width:640px){
+      .page-content { padding: 3rem 1.2rem 5rem; }
+      .timeline { padding-left: 1.8rem; }
+      .event-block::before { left: -2.2rem; }
+      .event-photos.two { grid-template-columns: 1fr; }
+      .event-photo img { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="https://gstadros.github.io/LHC-website-english/index.html">Home</a>
+      <span>›</span><span>Community Events &amp; Outreach</span>
+    </div>
+    <h1>Community Events &amp; Outreach</h1>
+    <p class="subtitle">Join us at our LHC booth during each of these exciting events — connecting with the community, one conversation at a time.</p>
+  </div>
+
+  <div class="page-content">
+
+    <!-- ── UPCOMING ── -->
+    <div class="upcoming-banner reveal">
+      <div class="upcoming-icon">📅</div>
+      <div class="upcoming-text">
+        <h2>Upcoming Events</h2>
+        <p>Stay tuned for more LHC events coming soon! Follow us on Instagram and Facebook or join our mailing list to be the first to know.</p>
+      </div>
+    </div>
+
+    <!-- ── PAST EVENTS ── -->
+    <div class="sdiv reveal">
+      <span class="tag">Looking Back</span>
+      <div class="line"></div>
+      <h2>Past Events</h2>
+    </div>
+    <p class="reveal" style="font-size:1rem;line-height:1.75;color:var(--text-m);font-weight:300;max-width:700px;margin-bottom:3rem;">Take a look at some of the amazing memories we made connecting with the community at each of these fantastic events.</p>
+
+    <div class="timeline">
+
+      <!-- Hội chợ Tết -->
+      <div class="event-block reveal">
+        <div class="event-date">January 31, 2026</div>
+        <div class="event-card">
+          <div class="event-card-inner">
+            <div class="event-photos one">
+              <div class="event-photo">
+                <img src="../assets/images/events/tet-fair.jpg" alt="Hội chợ Tết - Lunar New Year Fair 2026" onerror="this.style.background='linear-gradient(135deg,#e05f1a,#f09220)';this.style.height='220px';this.removeAttribute('src')">
+              </div>
+            </div>
+            <div class="event-body">
+              <h3>Hội chợ Tết (Lunar New Year Fair 2026)</h3>
+              <div class="winner-badge">🏆 Winner: Sherian</div>
+              <p>Sherian was our lucky winner at the Lunar New Year Fair! Thank you to everyone who stopped by our booth to chat about liver health.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Black History Month -->
+      <div class="event-block reveal">
+        <div class="event-date">February 7, 2026 — 1 pm to 5 pm</div>
+        <div class="event-card">
+          <div class="event-card-inner">
+            <div class="event-body">
+              <h3>Black History Month Event</h3>
+              <p><em>Beyond Survival: The Art of Thriving</em></p>
+              <div class="winner-badge">🏆 Winner: Toyina</div>
+              <p>Toyina was our CFN Black History Month event winner! A meaningful evening celebrating community resilience and health awareness.</p>
+            </div>
+            <div class="event-photos one">
+              <div class="event-photo">
+                <img src="../assets/images/events/black-history-month.jpg" alt="Black History Month Event" onerror="this.style.background='linear-gradient(135deg,#1e8735,#6e9b2d)';this.style.height='220px';this.removeAttribute('src')">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Know Your Status -->
+      <div class="event-block reveal">
+        <div class="event-date">December 1, 2025 — 11 am to 2 pm</div>
+        <div class="event-card">
+          <div class="event-card-inner">
+            <div class="event-photos one">
+              <div class="event-photo">
+                <img src="../assets/images/events/know-your-status.jpg" alt="Know Your Status Day" onerror="this.style.background='linear-gradient(135deg,#abbe30,#6e9b2d)';this.style.height='220px';this.removeAttribute('src')">
+              </div>
+            </div>
+            <div class="event-body">
+              <h3>"Know Your Status" Day</h3>
+              <p>In partnership with the Aakom-Kiyii Health Services (Piikani Nation)</p>
+              <div class="winner-badge">🏆 Winner: Waylon</div>
+              <p>Waylon was our Know Your Status Day winner! A powerful day focused on awareness and early detection.</p>
+              <a href="https://drive.google.com/file/d/1SkUaq7kJB9fpnar8e34SSPyH4tAIXIX4/view?usp=sharing" target="_blank" rel="noopener">More Information →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calgary Chinese Elderly -->
+      <div class="event-block reveal">
+        <div class="event-date">October 15, 2025</div>
+        <div class="event-card">
+          <div class="event-card-inner single">
+            <div class="event-body" style="border-left-color:var(--gold);">
+              <h3>Calgary Chinese Elderly Citizens' Association Liver Health Talk</h3>
+              <p>An engaging liver health talk hosted in partnership with the Calgary Chinese Elderly Citizens' Association — bringing accessible health information directly to the community.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CFN Fall Festival -->
+      <div class="event-block reveal">
+        <div class="event-date">October 4, 2025</div>
+        <div class="event-card">
+          <div class="event-card-inner">
+            <div class="event-photos one">
+              <div class="event-photo">
+                <img src="../assets/images/events/cfn-fall-festival.jpg" alt="CFN First Annual Fall Festival" onerror="this.style.background='linear-gradient(135deg,#ffc107,#e05f1a)';this.style.height='220px';this.removeAttribute('src')">
+              </div>
+            </div>
+            <div class="event-body">
+              <h3>CFN First Annual Fall Festival</h3>
+              <div class="winner-badge">🏆 Winner: Ruth</div>
+              <p>Ruth was our CFN Fall Festival winner! A wonderful community celebration bringing people together around health and wellness.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CFN Seminars -->
+      <div class="event-block reveal">
+        <div class="event-date">August 14–15, September 19, 2025</div>
+        <div class="event-card">
+          <div class="event-card-inner single">
+            <div class="event-body">
+              <h3>CFN Liver Health Seminars</h3>
+              <p>August 14th &amp; 15th · September 19th · September 19th (as part of CFN's Back-to-School Supply Drive)</p>
+              <p>A series of community seminars led by Dr. Nguyen, including a special interview — bringing expert liver health knowledge directly to the community.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Korean Day -->
+      <div class="event-block reveal">
+        <div class="event-date">August 9–10, 2025</div>
+        <div class="event-card">
+          <div class="event-card-inner">
+            <div class="event-body">
+              <h3>Calgary Korean Day Festival</h3>
+              <div class="winner-badge">🏆 Winner: Gerlynn Tham</div>
+              <p>Gerlynn was our cute Korean Day winner! A vibrant cultural festival where we connected with the Korean community in Calgary.</p>
+            </div>
+            <div class="event-photos one">
+              <div class="event-photo">
+                <img src="../assets/images/events/korean-day.jpg" alt="Calgary Korean Day Festival" onerror="this.style.background='linear-gradient(135deg,#1a5c7a,#1e8735)';this.style.height='220px';this.removeAttribute('src')">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MexiFest -->
+      <div class="event-block reveal">
+        <div class="event-date">July 4–6, 2025</div>
+        <div class="event-card">
+          <div class="event-card-inner">
+            <div class="event-photos one">
+              <div class="event-photo">
+                <img src="../assets/images/events/mexifest.jpg" alt="MexiFest" onerror="this.style.background='linear-gradient(135deg,#e05f1a,#ffc107)';this.style.height='220px';this.removeAttribute('src')">
+              </div>
+            </div>
+            <div class="event-body">
+              <h3>MexiFest</h3>
+              <div class="winner-badge">🏆 Winner: Serena G.</div>
+              <p>Serena was our lucky winner who got to enjoy our grand prize sponsored by Rosso! Thank you Serena for stopping by our booth and thank you to everyone who joined us to chat about liver health!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── CTA ── -->
+    <div class="events-cta reveal">
+      <h2>Stay Connected</h2>
+      <p>Follow us on social media or join our mailing list to stay up to date on all upcoming LHC events and outreach.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="https://www.instagram.com/liver_health_connect/" target="_blank" rel="noopener" class="btn" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61575111156885" target="_blank" rel="noopener" class="btn" style="background:#1877F2;color:#fff;">Facebook</a>
+        <a href="https://form.jotform.com/251561557744261" target="_blank" rel="noopener" class="btn btn-outline">Join Mailing List</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  </script>
+  <script src="../components.js"></script>
+</body>
+</html>
