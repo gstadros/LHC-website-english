@@ -94,24 +94,28 @@
     .community-section > p { font-size:0.97rem; line-height:1.75; color:var(--text-m); font-weight:300; max-width:700px; margin-bottom:2.5rem; }
 
     .community-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.4rem;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
     }
     .community-card {
       background: #fff; border-radius: 16px;
-      padding: 2rem 1.6rem 1.6rem;
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; gap: 1rem;
+      padding: 2.5rem 2rem 2rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+      text-align: center; gap: 1.4rem;
       box-shadow: 0 2px 14px rgba(30,135,53,0.08);
       border-top: 3px solid var(--green-m);
       transition: transform 0.25s, box-shadow 0.25s;
+      min-height: 240px;
     }
     .community-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(30,135,53,0.14); }
+    .community-card .logo-area {
+      flex: 1; display: flex; align-items: center; justify-content: center; width: 100%;
+    }
     .community-card img {
-      width: 100%; max-height: 120px;
+      max-width: 100%; max-height: 140px;
       object-fit: contain; display: block;
     }
-    .community-card h3 { font-family:'Lora',serif; font-size:1rem; color:var(--green); line-height:1.35; margin:0; }
+    .community-card h3 { font-family:'Lora',serif; font-size:1.05rem; color:var(--green); line-height:1.35; margin:0; }
 
     /* ── WORK WITH US CTA ── */
     .work-cta {
@@ -128,10 +132,11 @@
       .partner-feature { grid-template-columns: 1fr; }
       .partner-feature-img { min-height: 180px; }
       .work-cta { grid-template-columns: 1fr; text-align: center; }
+      .community-grid { grid-template-columns: 1fr 1fr; }
     }
     @media(max-width:640px){
       .page-content { padding: 3rem 1.2rem 5rem; }
-      .community-grid { grid-template-columns: 1fr 1fr; }
+      .community-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -196,31 +201,31 @@
 
       <div class="community-grid">
         <div class="community-card reveal delay-1">
-          <img src="../assets/images/logos/mexifest-logo.png" alt="Mexi-Fest">
+          <div class="logo-area"><img src="../assets/images/logos/mexifest-logo.png" alt="Mexi-Fest"></div>
           <h3>Mexi-Fest</h3>
         </div>
         <div class="community-card reveal delay-2">
-          <img src="../assets/images/logos/CKA-Logo.png" alt="Calgary Korean Association">
+          <div class="logo-area"><img src="../assets/images/logos/CKA-Logo.png" alt="Calgary Korean Association"></div>
           <h3>Calgary Korean Association</h3>
         </div>
         <div class="community-card reveal delay-3">
-          <img src="../assets/images/logos/logo-cvca.png" alt="Calgary Vietnamese Canadian Association">
+          <div class="logo-area"><img src="../assets/images/logos/logo-cvca.png" alt="Calgary Vietnamese Canadian Association"></div>
           <h3>Calgary Vietnamese Canadian Association</h3>
         </div>
         <div class="community-card reveal delay-4">
-          <img src="../assets/images/logos/CCECA_Logo.png" alt="Calgary Chinese Elderly Citizens' Association">
+          <div class="logo-area"><img src="../assets/images/logos/CCECA_Logo.png" alt="Calgary Chinese Elderly Citizens' Association"></div>
           <h3>Calgary Chinese Elderly Citizens' Association</h3>
         </div>
         <div class="community-card reveal delay-5">
-          <img src="../assets/images/logos/CFN logo.png" alt="Calgary Centre for Newcomers">
+          <div class="logo-area"><img src="../assets/images/logos/CFN logo.png" alt="Calgary Centre for Newcomers"></div>
           <h3>Calgary Centre for Newcomers</h3>
         </div>
         <div class="community-card reveal delay-5">
-          <img src="../assets/images/logos/Aakom-Kiyii Health Services - Piikani Nation_logo.png" alt="Aakom-Kiyii Health Services">
+          <div class="logo-area"><img src="../assets/images/logos/Aakom-Kiyii Health Services - Piikani Nation_logo.png" alt="Aakom-Kiyii Health Services"></div>
           <h3>Aakom-Kiyii Health Services – Piikani Nation</h3>
         </div>
         <div class="community-card reveal delay-5">
-          <img src="../assets/images/logos/Alberta Homeless Foundation Transparent.png" alt="Alberta Homeless Foundation">
+          <div class="logo-area"><img src="../assets/images/logos/Alberta Homeless Foundation Transparent.png" alt="Alberta Homeless Foundation"></div>
           <h3>Alberta Homeless Foundation</h3>
         </div>
       </div>
