@@ -94,28 +94,22 @@
     .community-section > p { font-size:0.97rem; line-height:1.75; color:var(--text-m); font-weight:300; max-width:700px; margin-bottom:2.5rem; }
 
     .community-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 1.4rem;
     }
     .community-card {
       background: #fff; border-radius: 16px;
-      padding: 2.2rem 1.8rem;
+      padding: 2rem 1.6rem 1.6rem;
       display: flex; flex-direction: column; align-items: center;
-      text-align: center; gap: 1.2rem;
+      text-align: center; gap: 1rem;
       box-shadow: 0 2px 14px rgba(30,135,53,0.08);
       border-top: 3px solid var(--green-m);
       transition: transform 0.25s, box-shadow 0.25s;
     }
     .community-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(30,135,53,0.14); }
-    .community-card .logo-wrap {
-      width: 120px; height: 120px; border-radius: 12px;
-      background: var(--cream);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; flex-shrink: 0;
-    }
-    .community-card .logo-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
-    .community-card .logo-wrap .initials {
-      font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 600; color: var(--green);
+    .community-card img {
+      width: 100%; max-height: 120px;
+      object-fit: contain; display: block;
     }
     .community-card h3 { font-family:'Lora',serif; font-size:1rem; color:var(--green); line-height:1.35; margin:0; }
 
@@ -202,35 +196,31 @@
 
       <div class="community-grid">
         <div class="community-card reveal delay-1">
-          <div class="logo-wrap"><img src="../assets/images/logos/mexifest-logo.png" alt="Mexi-Fest"></div>
+          <img src="../assets/images/logos/mexifest-logo.png" alt="Mexi-Fest">
           <h3>Mexi-Fest</h3>
         </div>
         <div class="community-card reveal delay-2">
-          <div class="logo-wrap"><img src="../assets/images/logos/CKA-Logo.png" alt="Calgary Korean Association"></div>
+          <img src="../assets/images/logos/CKA-Logo.png" alt="Calgary Korean Association">
           <h3>Calgary Korean Association</h3>
         </div>
         <div class="community-card reveal delay-3">
-          <div class="logo-wrap"><img src="../assets/images/logos/logo-cvca.png" alt="Calgary Vietnamese Canadian Association"></div>
+          <img src="../assets/images/logos/logo-cvca.png" alt="Calgary Vietnamese Canadian Association">
           <h3>Calgary Vietnamese Canadian Association</h3>
         </div>
         <div class="community-card reveal delay-4">
-          <div class="logo-wrap"><img src="../assets/images/logos/CCECA_Logo.png" alt="Calgary Chinese Elderly Citizens' Association"></div>
+          <img src="../assets/images/logos/CCECA_Logo.png" alt="Calgary Chinese Elderly Citizens' Association">
           <h3>Calgary Chinese Elderly Citizens' Association</h3>
         </div>
         <div class="community-card reveal delay-5">
-          <div class="logo-wrap"><img src="../assets/images/logos/CFN logo.png" alt="Calgary Centre for Newcomers"></div>
+          <img src="../assets/images/logos/CFN logo.png" alt="Calgary Centre for Newcomers">
           <h3>Calgary Centre for Newcomers</h3>
         </div>
         <div class="community-card reveal delay-5">
-          <div class="logo-wrap"><img src="../assets/images/logos/Aakom-Kiyii Health Services - Piikani Nation_logo.png" alt="Aakom-Kiyii Health Services"></div>
+          <img src="../assets/images/logos/Aakom-Kiyii Health Services - Piikani Nation_logo.png" alt="Aakom-Kiyii Health Services">
           <h3>Aakom-Kiyii Health Services – Piikani Nation</h3>
         </div>
         <div class="community-card reveal delay-5">
-          <div class="logo-wrap"><img src="../assets/images/logos/indian_association.jpg" alt="Indian Association"></div>
-          <h3>Indian Association</h3>
-        </div>
-        <div class="community-card reveal delay-5">
-          <div class="logo-wrap"><img src="../assets/images/logos/Alberta Homeless Foundation Transparent.png" alt="Alberta Homeless Foundation"></div>
+          <img src="../assets/images/logos/Alberta Homeless Foundation Transparent.png" alt="Alberta Homeless Foundation">
           <h3>Alberta Homeless Foundation</h3>
         </div>
       </div>
