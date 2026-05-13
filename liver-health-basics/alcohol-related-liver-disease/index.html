@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Alcohol-Related Liver Disease – Liver Health Connect</title>
+  <link rel="stylesheet" href="../../shared.css">
+  <style>
+    body { padding-top: var(--nav-h); }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 4rem 2rem 3.5rem;
+      background: linear-gradient(135deg, #7a1a1a 0%, #c0392b 100%);
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .page-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 85% 50%, rgba(255,255,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .breadcrumb { font-size:0.78rem; color:rgba(255,255,255,0.7); margin-bottom:1rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+    .page-hero .breadcrumb a { color:rgba(255,255,255,0.75); text-decoration:none; }
+    .page-hero .breadcrumb a:hover { color:#fff; }
+    .page-hero .breadcrumb span { opacity:0.5; }
+    .page-hero h1 { font-family:'Lora',serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:600; line-height:1.2; position:relative; z-index:2; }
+    .page-hero .subtitle { margin-top:0.8rem; font-size:1rem; font-weight:300; color:rgba(255,255,255,0.82); max-width:620px; line-height:1.65; position:relative; z-index:2; }
+
+    /* ── DISEASE NAV PILLS ── */
+    .disease-nav {
+      background: #fff;
+      border-bottom: 1px solid rgba(30,135,53,0.1);
+      padding: 0.8rem 2rem;
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      align-items: center; justify-content: center;
+    }
+    .disease-pill {
+      font-size: 0.75rem; font-weight: 600;
+      padding: 0.4rem 0.9rem; border-radius: 20px;
+      text-decoration: none; letter-spacing: 0.02em;
+      border: 1.5px solid rgba(30,135,53,0.2);
+      color: var(--text-m);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .disease-pill:hover { background: rgba(30,135,53,0.06); border-color: var(--green); color: var(--green); }
+    .disease-pill.active { background: #7a1a1a; border-color: #7a1a1a; color: #fff; }
+
+    /* ── LAYOUT ── */
+    .page-content { max-width: 900px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+
+    /* ── SECTION BLOCKS ── */
+    .section-block {
+      background: #fff; border-radius: 16px;
+      margin-bottom: 1.6rem;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+    .section-block-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.4rem 2rem;
+      background: linear-gradient(135deg, #7a1a1a 0%, #c0392b 100%);
+      color: #fff;
+    }
+    .section-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .section-block-header h2 {
+      font-family: 'Lora', serif; font-size: 1.15rem;
+      font-weight: 600; color: #fff; margin: 0; line-height: 1.3;
+    }
+    .section-block-body {
+      padding: 1.8rem 2rem;
+    }
+    .section-block-body p {
+      font-size: 1rem; line-height: 1.82; color: var(--text-m); font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .section-block-body p:last-child { margin-bottom: 0; }
+    .section-block-body ul, .section-block-body ol {
+      padding-left: 1.4rem; margin: 0.8rem 0 1rem;
+    }
+    .section-block-body li {
+      font-size: 1rem; line-height: 1.75; color: var(--text-m); font-weight: 300;
+      margin-bottom: 0.4rem;
+    }
+    .section-block-body a { color: var(--green); font-weight: 500; }
+    .section-block-body a:hover { color: var(--orange); }
+    .section-block-body strong { color: var(--text); font-weight: 600; }
+
+    /* threshold cards */
+    .threshold-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    .threshold-card {
+      border-radius: 12px; padding: 1.4rem;
+      background: linear-gradient(135deg, #7a1a1a 0%, #c0392b 100%);
+      text-align: center; color: #fff;
+    }
+    .threshold-card .value { font-family:'Lora',serif; font-size:1.8rem; font-weight:600; }
+    .threshold-card .label { font-size:0.85rem; font-weight:300; color:rgba(255,255,255,0.85); margin-top:0.3rem; }
+
+    /* highlight box */
+    .highlight-box {
+      background: rgba(255,193,7,0.1); border: 1.5px solid rgba(255,193,7,0.4);
+      border-radius: 12px; padding: 1.2rem 1.5rem; margin: 1rem 0;
+      font-size:1rem; line-height:1.75; color: var(--text-m); font-weight:300;
+    }
+    .highlight-box strong { color: var(--text); }
+
+    /* callout */
+    .callout {
+      background: linear-gradient(135deg, #7a1a1a 0%, #c0392b 100%);
+      border-radius: 12px; padding: 1.4rem 1.8rem; margin: 1rem 0;
+      font-family: 'Lora', serif; font-size: 1.05rem;
+      font-style: italic; color: #fff; line-height: 1.65;
+    }
+
+    /* disease links */
+    .disease-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0; }
+    .disease-link {
+      display: inline-block; padding: 0.45rem 1rem; border-radius: 8px;
+      background: rgba(30,135,53,0.08); color: var(--green);
+      font-size: 0.88rem; font-weight: 600; text-decoration: none;
+      border: 1.5px solid rgba(30,135,53,0.2);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .disease-link:hover { background: rgba(30,135,53,0.15); border-color: var(--green); }
+
+    /* ── SIBLING NAV ── */
+    .sibling-nav {
+      display: flex; justify-content: space-between; gap: 1rem;
+      margin-top: 3rem; flex-wrap: wrap;
+    }
+    .sibling-nav a {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.8rem 1.4rem; border-radius: 10px;
+      background: #fff; border: 1.5px solid rgba(30,135,53,0.15);
+      color: var(--green); font-size: 0.88rem; font-weight: 600;
+      text-decoration: none; transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .sibling-nav a:hover { border-color: var(--green); box-shadow: 0 4px 16px rgba(30,135,53,0.12); }
+    .sibling-nav .back { color: var(--text-m); }
+
+    @media(max-width:640px){
+      .page-content { padding: 2.5rem 1.2rem 4rem; }
+      .section-block-body { padding: 1.4rem 1.4rem; }
+      .threshold-grid { grid-template-columns: 1fr; }
+      .disease-nav { padding: 0.8rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="https://gstadros.github.io/LHC-website-english/index.html">Home</a>
+      <span>›</span>
+      <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/index.html">Liver Health Basics</a>
+      <span>›</span>
+      <span>Alcohol-Related Liver Disease</span>
+    </div>
+    <h1>Alcohol-Related Liver Disease</h1>
+    <p class="subtitle">Caused by excessive alcohol intake — which may be less than you think.</p>
+  </div>
+
+  <!-- Quick navigation between diseases -->
+  <div class="disease-nav">
+    <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/fatty-liver-disease/index.html" class="disease-pill ">Fatty Liver Disease</a>
+<a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/alcohol-related-liver-disease/index.html" class="disease-pill active">Alcohol-Related Liver Disease</a>
+<a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/viral-hepatitis/index.html" class="disease-pill ">Viral Hepatitis</a>
+<a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/autoimmune-liver-diseases/index.html" class="disease-pill ">Autoimmune Liver Diseases</a>
+<a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/liver-cancer/index.html" class="disease-pill ">Liver Cancer</a>
+<a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/cirrhosis/index.html" class="disease-pill ">Cirrhosis</a>
+
+  </div>
+
+  <div class="page-content">
+    
+    
+      <div class="section-block reveal delay-1">
+        <div class="section-block-header">
+          <span class="section-icon">🍷</span>
+          <h2>What causes it?</h2>
+        </div>
+        <div class="section-block-body">
+          
+            <p>Alcohol-Related Liver Disease is another common form of liver disease in North America.</p>
+            <p>As the name implies, this disease results from excessive alcohol intake, which becomes toxic to the liver causing it injury. This can happen slowly over time or very fast in cases of prolonged binge drinking.</p>
+            <p>However, "excessive" intake of alcohol might be a lot less than you think!</p>
+            <p>Generally, the relatively safe thresholds are:</p>
+            <div class="threshold-grid">
+              <div class="threshold-card">
+                <div class="value">≤ 2</div>
+                <div class="label">drinks per day for Men</div>
+              </div>
+              <div class="threshold-card">
+                <div class="value">≤ 1</div>
+                <div class="label">drink per day for Women</div>
+              </div>
+            </div>
+            <div class="highlight-box">⚠️ However, these thresholds are not universally agreed upon and <strong>the only truly safe level of alcohol is none at all.</strong></div>
+        
+        </div>
+      </div>
+
+      <div class="section-block reveal delay-2">
+        <div class="section-block-header">
+          <span class="section-icon">🔬</span>
+          <h2>How do we diagnose it?</h2>
+        </div>
+        <div class="section-block-body">
+          
+            <p>We usually suspect alcohol-related liver disease when there's a history of long-term, heavy alcohol use, combined with signs that the liver is injured. This includes abnormal liver tests and other lab results that suggest alcohol is affecting the body and when these signs can't be explained by another condition.</p>
+        
+        </div>
+      </div>
+
+      <div class="section-block reveal delay-3">
+        <div class="section-block-header">
+          <span class="section-icon">💊</span>
+          <h2>How can it be treated?</h2>
+        </div>
+        <div class="section-block-body">
+          
+            <p>For people with liver disease from long-term alcohol use, the key to treatment is reducing or stopping alcohol completely. But alcohol misuse is complex, and stopping isn't always easy. That's why we emphasize support, including counseling, medications, and community programs, to help people make changes that last. When alcohol is removed, the liver often has a chance to heal.</p>
+        
+        </div>
+      </div>
+
+      <div class="section-block reveal delay-4">
+        <div class="section-block-header">
+          <span class="section-icon">⚡</span>
+          <h2>What about alcoholic hepatitis?</h2>
+        </div>
+        <div class="section-block-body">
+          
+            <p>Alcoholic hepatitis is the most serious form of liver injury occurring after a period of heavy or binge drinking. People often become very sick and need to be treated in the hospital with things like steroids, nutrition, and close monitoring. After recovery, quitting alcohol completely is strongly recommended to prevent further damage.</p>
+        
+        </div>
+      </div>
+
+      <div class="section-block reveal delay-5">
+        <div class="section-block-header">
+          <span class="section-icon">🛡️</span>
+          <h2>How can we prevent it?</h2>
+        </div>
+        <div class="section-block-body">
+          
+            <p>The only effective way to 100% guarantee that you're protecting yourself from Alcohol-Related Liver Disease is to abstain from alcohol.</p>
+            <p>However, in cases where that's not possible, trying to decrease alcohol use to less than the safe threshold (≤ 2 drinks per day for men and ≤ 1 drink for women) is the best option. As we discussed above, there are ways to help people who are struggling with decreasing their alcohol use, through medications augmented by counselling.</p>
+        
+        </div>
+      </div>
+
+    
+
+    <!-- Sibling navigation -->
+    <div class="sibling-nav">
+      <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/index.html" class="back">← All Liver Diseases</a>
+      <a href="https://gstadros.github.io/LHC-website-english/pathways-to-care/index.html">Pathways to Care →</a>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  </script>
+  <script src="../../components.js"></script>
+</body>
+</html>
