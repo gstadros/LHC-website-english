@@ -76,24 +76,26 @@
     /* ── DISEASE CARDS ── */
     .disease-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.4rem;
       margin-bottom: 5rem;
     }
 
     .disease-card {
       border-radius: 16px; overflow: hidden;
-      text-decoration: none; display: block;
+      text-decoration: none; display: flex; flex-direction: column;
       box-shadow: 0 2px 16px rgba(0,0,0,0.08);
       transition: transform 0.35s, box-shadow 0.35s;
-      position: relative;
     }
     .disease-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(0,0,0,0.15); }
 
     .disease-card-header {
       padding: 1.8rem 1.8rem 1.4rem;
-      position: relative;
+      position: relative; display: block;
+      text-decoration: none;
+      transition: filter 0.2s;
     }
+    .disease-card-header:hover { filter: brightness(1.1); }
     .disease-card-header .number {
       position: absolute; top: 1rem; right: 1.4rem;
       font-family: 'Lora', serif; font-size: 3.5rem; font-weight: 600;
@@ -105,16 +107,23 @@
 
     .disease-card-body {
       background: #fff; padding: 1.4rem 1.8rem 1.8rem;
-      border-top: none;
+      flex: 1; display: flex; flex-direction: column;
     }
-    .disease-card-body p { font-size:0.93rem; line-height:1.75; color:var(--text-m); font-weight:300; margin-bottom:1rem; }
+    .disease-card-body p { font-size:0.93rem; line-height:1.75; color:var(--text-m); font-weight:300; margin-bottom:1rem; flex:1; }
     .disease-card-link {
       display: inline-flex; align-items: center; gap: 0.4rem;
       font-size: 0.82rem; font-weight: 700; text-decoration: none;
       letter-spacing: 0.05em; text-transform: uppercase;
-      transition: gap 0.2s;
+      transition: gap 0.2s; margin-top: auto;
     }
     .disease-card:hover .disease-card-link { gap: 0.7rem; }
+
+    @media(max-width:860px) {
+      .disease-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width:540px) {
+      .disease-grid { grid-template-columns: 1fr; }
+    }
 
     /* gradient headers per disease */
     .dc-1 .disease-card-header { background: linear-gradient(135deg, #1e5c2a 0%, #2a8f40 100%); }
@@ -211,15 +220,16 @@
       <p>Read below for quick snapshots of each type of liver disease, or click on the title of each of them to read more.</p>
     </div>
 
-    <div class="disease-grid">
+    
+      <div class="disease-grid">
 
       <div class="disease-card dc-1 reveal delay-1">
-        <div class="disease-card-header">
+        <a class="disease-card-header" href="https://gstadros.github.io/LHC-website-english/liver-health-basics/fatty-liver-disease/index.html">
           <span class="number">01</span>
           <span class="icon">🫀</span>
           <h3>Fatty Liver Disease</h3>
           <div class="aka">Also known as MASLD / MASH</div>
-        </div>
+        </a>
         <div class="disease-card-body">
           <p>This liver disease is mainly caused by fat deposition in the liver, which can be caused by unhealthy diets, lack of exercise, or uncontrolled diabetes.</p>
           <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/fatty-liver-disease/index.html" class="disease-card-link">Read more →</a>
@@ -227,11 +237,12 @@
       </div>
 
       <div class="disease-card dc-2 reveal delay-2">
-        <div class="disease-card-header">
+        <a class="disease-card-header" href="https://gstadros.github.io/LHC-website-english/liver-health-basics/alcohol-related-liver-disease/index.html">
           <span class="number">02</span>
           <span class="icon">🍷</span>
           <h3>Alcohol-Related Liver Disease</h3>
-        </div>
+          
+        </a>
         <div class="disease-card-body">
           <p>Alcohol is toxic to the liver, and long-term use of alcohol can cause the liver to become inflamed and diseased.</p>
           <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/alcohol-related-liver-disease/index.html" class="disease-card-link">Read more →</a>
@@ -239,12 +250,12 @@
       </div>
 
       <div class="disease-card dc-3 reveal delay-3">
-        <div class="disease-card-header">
+        <a class="disease-card-header" href="https://gstadros.github.io/LHC-website-english/liver-health-basics/viral-hepatitis/index.html">
           <span class="number">03</span>
           <span class="icon">🦠</span>
           <h3>Viral Hepatitis</h3>
           <div class="aka">Hepatitis B &amp; Hepatitis C</div>
-        </div>
+        </a>
         <div class="disease-card-body">
           <p>While many viruses can infect the liver and cause short-term illness, the two viruses that can cause long-term (chronic) liver disease are Hepatitis B and Hepatitis C viruses.</p>
           <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/viral-hepatitis/index.html" class="disease-card-link">Read more →</a>
@@ -252,11 +263,12 @@
       </div>
 
       <div class="disease-card dc-4 reveal delay-4">
-        <div class="disease-card-header">
+        <a class="disease-card-header" href="https://gstadros.github.io/LHC-website-english/liver-health-basics/autoimmune-liver-diseases/index.html">
           <span class="number">04</span>
           <span class="icon">🛡️</span>
           <h3>Autoimmune Liver Diseases</h3>
-        </div>
+          
+        </a>
         <div class="disease-card-body">
           <p>Autoimmune liver diseases is a group of 3 diseases where the body attacks its own best organ, the liver.</p>
           <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/autoimmune-liver-diseases/index.html" class="disease-card-link">Read more →</a>
@@ -264,11 +276,12 @@
       </div>
 
       <div class="disease-card dc-5 reveal delay-5">
-        <div class="disease-card-header">
+        <a class="disease-card-header" href="https://gstadros.github.io/LHC-website-english/liver-health-basics/liver-cancer/index.html">
           <span class="number">05</span>
           <span class="icon">⚠️</span>
           <h3>Liver Cancer</h3>
-        </div>
+          
+        </a>
         <div class="disease-card-body">
           <p>Any of the above liver diseases can increase the risk of developing liver cancer.</p>
           <a href="https://gstadros.github.io/LHC-website-english/liver-health-basics/liver-cancer/index.html" class="disease-card-link">Read more →</a>
