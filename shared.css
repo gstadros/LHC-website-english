@@ -58,9 +58,9 @@ nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,0.18)}
 .nav-links>li{position:relative}
 .nav-links>li>a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;font-weight:500;letter-spacing:0.03em;padding:0.45rem 0.65rem;border-radius:6px;transition:background 0.2s,color 0.2s;display:block}
 .nav-links>li>a:hover,.nav-links>li>a.active{background:rgba(255,255,255,0.13);color:#fff}
-.dropdown{display:none;position:absolute;top:100%;left:0;background:#1a6e2e;border-radius:10px;min-width:230px;padding:0.4rem 0;box-shadow:0 8px 32px rgba(0,0,0,0.25);animation:dropIn 0.2s ease;margin-top:0;}.nav-links>li::after{content:"";position:absolute;bottom:0;left:0;right:0;height:12px;}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:#1a6e2e;border-radius:10px;min-width:230px;padding:0.4rem 0;box-shadow:0 8px 32px rgba(0,0,0,0.25);animation:dropIn 0.2s ease;margin-top:0;}
 @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-.nav-links>li:hover .dropdown{display:block}
+.nav-links>li .dropdown.open{display:block}
 .dropdown a{display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.78rem;padding:0.5rem 1.1rem;transition:background 0.15s,color 0.15s}
 .dropdown a:hover{background:rgba(255,255,255,0.1);color:#fff}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}

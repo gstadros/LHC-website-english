@@ -54,6 +54,42 @@ async function initComponents() {
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
   }
 
+  // ── Dropdown: JS-controlled with close delay so mouse can reach it ─────
+  const menuItems = document.querySelectorAll('.nav-links > li');
+  menuItems.forEach(li => {
+    const dropdown = li.querySelector('.dropdown');
+    if (!dropdown) return;
+
+    let closeTimer = null;
+
+    const openDropdown = () => {
+      clearTimeout(closeTimer);
+      // Close any other open dropdowns
+      document.querySelectorAll('.nav-links > li .dropdown.open').forEach(d => {
+        if (d !== dropdown) d.classList.remove('open');
+      });
+      dropdown.classList.add('open');
+    };
+
+    const scheduleClose = () => {
+      closeTimer = setTimeout(() => {
+        dropdown.classList.remove('open');
+      }, 150); // 150ms grace period — enough to move mouse into dropdown
+    };
+
+    li.addEventListener('mouseenter', openDropdown);
+    li.addEventListener('mouseleave', scheduleClose);
+    dropdown.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+    dropdown.addEventListener('mouseleave', scheduleClose);
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-links')) {
+      document.querySelectorAll('.nav-links > li .dropdown.open')
+        .forEach(d => d.classList.remove('open'));
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', initComponents);
