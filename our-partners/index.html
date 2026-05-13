@@ -47,6 +47,9 @@
       box-shadow: 0 4px 32px rgba(30,135,53,0.1);
       margin-bottom: 2rem;
     }
+    .partner-feature.full-width {
+      grid-template-columns: 1fr;
+    }
     .partner-feature-img {
       background: #fff;
       display: flex; align-items: center; justify-content: center;
@@ -153,39 +156,16 @@
       <h2 class="reveal">Corporate For Community</h2>
       <p class="reveal">Our corporate partners share our belief that healthier communities start with better information and awareness.</p>
 
-      <!-- AbbVie -->
-      <div class="partner-feature reveal">
-        <div class="partner-feature-img">
-          <img src="../assets/images/logos/abbvie.jpg" alt="AbbVie">
-        </div>
-        <div class="partner-feature-body">
-          <div class="partner-type">Corporate Partner</div>
-          <h3>AbbVie</h3>
-          <p>AbbVie is kindly sponsoring many of our future events, helping us bring liver health education and awareness to communities across Calgary.</p>
-        </div>
-      </div>
-
-      <!-- Ipsen -->
-      <div class="partner-feature reveal">
-        <div class="partner-feature-img">
-          <img src="../assets/images/logos/ipsen.png" alt="Ipsen">
-        </div>
-        <div class="partner-feature-body">
-          <div class="partner-type">Corporate Partner</div>
-          <h3>Ipsen</h3>
-          <p>Ipsen is kindly sponsoring many of our future events, supporting our mission to connect communities with vital liver health information and resources.</p>
-        </div>
-      </div>
-
-      <!-- McKesson Canada -->
-      <div class="partner-feature reveal">
-        <div class="partner-feature-img">
-          <img src="../assets/images/logos/mckesson.jpeg" alt="McKesson Canada">
-        </div>
-        <div class="partner-feature-body">
-          <div class="partner-type">Corporate Partner</div>
-          <h3>McKesson Canada</h3>
-          <p>McKesson Canada is kindly sponsoring many of our future events, enabling us to expand our outreach and deliver liver health education to more communities.</p>
+      <!-- Pharma sponsors grouped -->
+      <div class="partner-feature full-width reveal">
+        <div class="partner-feature-body" style="border-left-color:var(--green);grid-column:1/-1;">
+          <h3>Event Sponsors</h3>
+          <p>These amazing corporate partners are kindly sponsoring many of our future events, enabling us to expand our outreach and deliver liver health education to more communities.</p>
+          <div style="display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;margin-top:1.8rem;">
+            <img src="../assets/images/logos/abbvie.jpg" alt="AbbVie" style="max-height:80px;max-width:180px;object-fit:contain;">
+            <img src="../assets/images/logos/ipsen.png" alt="Ipsen" style="max-height:80px;max-width:180px;object-fit:contain;">
+            <img src="../assets/images/logos/mckesson.jpeg" alt="McKesson Canada" style="max-height:80px;max-width:180px;object-fit:contain;">
+          </div>
         </div>
       </div>
 
@@ -195,7 +175,6 @@
           <img src="../assets/images/logos/Allison Associates.png" alt="Allison Associates">
         </div>
         <div class="partner-feature-body">
-          <div class="partner-type">Corporate Partner</div>
           <h3>Allison Associates</h3>
           <p>Thanks to help from Allison Associates and their legal expertise, LHC was officially recognized as a non-profit that aims to serve its community and spread awareness about liver health.</p>
         </div>
