@@ -143,13 +143,11 @@
     }
     @media(max-width: 640px) {
       .page-content { padding: 2.5rem 1.2rem 4rem; }
-      .member-card { grid-template-columns: 160px 1fr; }
-      .member-text { padding: 1.4rem 1.2rem; }
-      .member-text h2 { font-size: 0.95rem; }
-    }
-    @media(max-width: 480px) {
       .member-card { grid-template-columns: 1fr; }
-      .member-img-wrap img, .member-initials { height: 220px; min-height: 220px; }
+      .member-img-wrap img,
+      .member-img-wrap .member-initials { height: 280px; min-height: 280px; }
+      .member-text { padding: 1.4rem 1.2rem; }
+      .member-text h2 { font-size: 1rem; }
     }
   </style>
 </head>
