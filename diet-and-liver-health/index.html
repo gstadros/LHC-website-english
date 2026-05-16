@@ -453,8 +453,30 @@
     .ask-cta .btn-primary { white-space: nowrap; color: var(--black); }
 
     /* ── RESPONSIVE ── */
-    @media(max-width: 860px) {
-      .dietitian-feature { grid-template-columns: 1fr; }
+    /* ── MOBILE TABLE RESPONSIVE ── */
+    @media(max-width: 700px) {
+      /* Compare table — hide header, stack each row as a card */
+      .compare-table thead { display: none; }
+      .compare-table, .compare-table tbody, .compare-table tr, .compare-table td { display: block; width: 100%; }
+      .compare-table tr { margin-bottom: 1rem; border: 1px solid rgba(30,135,53,0.1); border-radius: 10px; overflow: hidden; }
+      .compare-table td { text-align: left !important; padding: 0.7rem 1rem; border-top: 1px solid rgba(30,135,53,0.08); }
+      .compare-table td:first-child {
+        background: var(--green); color: #fff; font-family: 'Lora', serif;
+        font-size: 0.85rem; font-weight: 700; text-align: left !important;
+        border-top: none;
+      }
+      .compare-table td:nth-child(2)::before { content: "🌿 Mediterranean: "; font-weight: 600; color: var(--green); }
+      .compare-table td:nth-child(3)::before { content: "🔥 Anti-Inflammatory: "; font-weight: 600; color: var(--orange); }
+
+      /* Swap table — hide arrow column, stack into 2 columns */
+      .swap-table th.swap-arrow, .swap-table td.arrow-cell { display: none; }
+      .swap-table th.swap-instead { width: 50%; }
+      .swap-table th.swap-try { width: 50%; }
+      .swap-table tbody td { font-size: 0.88rem; padding: 0.75rem 0.8rem; }
+
+      .holiday-images { grid-template-columns: 1fr; }
+      .holiday-img-wrap { height: 180px; }
+    }
       .dietitian-visual { height: 280px; }
       .consumption-grid { grid-template-columns: 1fr; }
       .checklist-grid { grid-template-columns: 1fr; }
