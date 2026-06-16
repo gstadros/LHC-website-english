@@ -1,14 +1,23 @@
 /**
  * components.js
  * Fetches nav.html and footer.html and injects them into the page.
- *
- * ── WHEN YOU SWITCH DOMAINS ──────────────────────────────────────────────
- * Change BASE_URL to your custom domain and everything updates automatically.
- * ─────────────────────────────────────────────────────────────────────────
  */
-const BASE_URL = 'https://gstadros.github.io/LHC-website-english'; // ← change this when going live
+const BASE_URL = 'https://www.liverhealthconnect.com';
 
-// ── Derive root path from this script's location (works at any subfolder depth)
+// ── Google Analytics 4 ────────────────────────────────────────────────────
+(function() {
+  const s1 = document.createElement('script');
+  s1.async = true;
+  s1.src = 'https://www.googletagmanager.com/gtag/js?id=G-M4HPXH7NMH';
+  document.head.appendChild(s1);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-M4HPXH7NMH');
+})();
+
+// ── Derive root path from this script's location ──────────────────────────
 function getRootPath() {
   const scripts = document.querySelectorAll('script[src]');
   for (const s of scripts) {
@@ -54,7 +63,7 @@ async function initComponents() {
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
   }
 
-  // ── Dropdown: JS-controlled with close delay so mouse can reach it ─────
+  // ── Dropdown: JS-controlled with close delay ───────────────────────────
   const menuItems = document.querySelectorAll('.nav-links > li');
   menuItems.forEach(li => {
     const dropdown = li.querySelector('.dropdown');
@@ -64,7 +73,6 @@ async function initComponents() {
 
     const openDropdown = () => {
       clearTimeout(closeTimer);
-      // Close any other open dropdowns
       document.querySelectorAll('.nav-links > li .dropdown.open').forEach(d => {
         if (d !== dropdown) d.classList.remove('open');
       });
@@ -74,7 +82,7 @@ async function initComponents() {
     const scheduleClose = () => {
       closeTimer = setTimeout(() => {
         dropdown.classList.remove('open');
-      }, 150); // 150ms grace period — enough to move mouse into dropdown
+      }, 150);
     };
 
     li.addEventListener('mouseenter', openDropdown);
