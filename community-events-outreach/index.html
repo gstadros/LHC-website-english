@@ -56,12 +56,18 @@
       border: 1.5px solid rgba(30,135,53,0.12);
       transition: transform 0.3s, box-shadow 0.3s;
     }
+    .upcoming-card.reversed { grid-template-columns: 1fr 120px; }
+    .upcoming-card.reversed .upcoming-date-col { order: 2; }
+    .upcoming-card.reversed .upcoming-body { order: 1; }
     .upcoming-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(30,135,53,0.15); }
     .upcoming-date-col {
       background: linear-gradient(160deg, var(--green) 0%, var(--green-m) 100%);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       padding: 2rem 1rem; text-align: center; color: #fff;
     }
+    .upcoming-date-col.orange { background: linear-gradient(160deg, var(--orange) 0%, var(--orange-w) 100%); }
+    .upcoming-date-col.gold { background: linear-gradient(160deg, #c49a00 0%, var(--gold) 100%); }
+    .upcoming-date-col.teal { background: linear-gradient(160deg, #1a5c7a 0%, #2a8f9a 100%); }
     .upcoming-month { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
     .upcoming-day { font-family: 'Lora', serif; font-size: 3rem; font-weight: 600; line-height: 1; margin: 0.2rem 0; }
     .upcoming-year { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
@@ -80,7 +86,9 @@
     .upcoming-body p { font-size: 0.95rem; line-height: 1.75; color: var(--text-m); font-weight: 300; margin: 0; }
 
     @media(max-width:640px){
-      .upcoming-card { grid-template-columns: 90px 1fr; }
+      .upcoming-card, .upcoming-card.reversed { grid-template-columns: 1fr; }
+      .upcoming-card.reversed .upcoming-date-col { order: 0; }
+      .upcoming-card.reversed .upcoming-body { order: 1; }
       .upcoming-day { font-size: 2.2rem; }
       .upcoming-body { padding: 1.4rem 1.2rem; }
     }
@@ -244,7 +252,7 @@
 
     <div class="upcoming-events reveal">
 
-      <!-- June 26 2026 -->
+      <!-- June 26 2026 — green, date left -->
       <div class="upcoming-card">
         <div class="upcoming-date-col">
           <div class="upcoming-month">JUN</div>
@@ -263,9 +271,9 @@
         </div>
       </div>
 
-      <!-- August 22 2026 — CVCA FibroScan -->
-      <div class="upcoming-card">
-        <div class="upcoming-date-col">
+      <!-- August 22 2026 — orange, date right -->
+      <div class="upcoming-card reversed">
+        <div class="upcoming-date-col orange">
           <div class="upcoming-month">AUG</div>
           <div class="upcoming-day">22</div>
           <div class="upcoming-year">2026</div>
@@ -277,20 +285,16 @@
             <img src="../assets/images/logos/logo-cvca.png" alt="Calgary Vietnamese Canadian Association" style="height:70px;object-fit:contain;">
           </div>
           <h3 style="font-size:1.5rem;text-align:center;">A Healthy Liver, A Healthy Life</h3>
-          <p style="font-style:italic;color:var(--green);font-weight:500;margin:0;font-size:1.05rem;">Liver Health Connect in partnership with the Calgary Vietnamese Canadian Association</p>
+          <p style="font-style:italic;color:var(--orange);font-weight:500;margin:0;font-size:1.05rem;">Liver Health Connect in partnership with the Calgary Vietnamese Canadian Association</p>
           <p>Join us for a community liver health & wellness event hosted by LHC in collaboration with the CVCA. Free FibroScans will be available, alongside liver health education, healthy living & prevention talks, a healthy food demonstration & tasting, as well as a Q&A session.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem 1.4rem;margin-top:0.4rem;">
-            <p style="margin:0;font-size:0.9rem;"><strong>📅</strong> Saturday, August 22, 2026</p>
-            <p style="margin:0;font-size:0.9rem;"><strong>🕙</strong> 10:30 AM</p>
-            <p style="margin:0;font-size:0.9rem;"><strong>📍</strong> The Canadian Vietnamese Association — 1829 54 St SE #203, Calgary, AB T2B 1N5</p>
-          </div>
-          <a href="https://drive.google.com/file/d/1A91FWSgHhvdaeOM-FdCekjlXXYRhD6ac/view?usp=sharing" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px;font-size:0.95rem;margin-top:0.4rem;">📄 For more details, refer to the event poster →</a>
+          <p style="margin:0;font-size:0.9rem;"><strong>📍</strong> The Canadian Vietnamese Association — 1829 54 St SE #203, Calgary, AB T2B 1N5</p>
+          <a href="https://drive.google.com/file/d/1A91FWSgHhvdaeOM-FdCekjlXXYRhD6ac/view?usp=sharing" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;color:var(--orange);font-weight:600;text-decoration:underline;text-underline-offset:3px;font-size:0.95rem;margin-top:0.4rem;">📄 For more details, refer to the event poster →</a>
         </div>
       </div>
 
-      <!-- September 3 2026 — CCIS -->
+      <!-- September 3 2026 — teal, date left -->
       <div class="upcoming-card">
-        <div class="upcoming-date-col">
+        <div class="upcoming-date-col teal">
           <div class="upcoming-month">SEP</div>
           <div class="upcoming-day">3</div>
           <div class="upcoming-year">2026</div>
@@ -302,7 +306,7 @@
             <img src="../assets/images/logos/CCIS_logo.png" alt="Calgary Catholic Immigration Society" style="height:70px;object-fit:contain;">
           </div>
           <h3 style="font-size:1.5rem;text-align:center;">Community Health Outreach</h3>
-          <p style="font-style:italic;color:var(--green);font-weight:500;margin:0;font-size:1.05rem;">Liver Health Connect in partnership with Calgary Catholic Immigration Society (CCIS)</p>
+          <p style="font-style:italic;color:#1a5c7a;font-weight:500;margin:0;font-size:1.05rem;">Liver Health Connect in partnership with Calgary Catholic Immigration Society (CCIS)</p>
           <p>LHC will be joining the Calgary Catholic Immigration Society for a community health outreach event. Time TBD (stay tuned for more details!)</p>
         </div>
       </div>
