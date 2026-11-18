@@ -196,6 +196,7 @@
     .event-body h3 { font-family:'Lora',serif; font-size:1.25rem; color:var(--green); margin-bottom:0.5rem; }
     .event-body p { font-size:0.95rem; line-height:1.75; color:var(--text-m); font-weight:300; margin-bottom:0.8rem; }
     .event-body p:last-child { margin-bottom:0; }
+    .event-highlight { background: linear-gradient(transparent 55%, rgba(232,160,32,0.38) 55%); color: var(--text); font-weight: 600; padding: 0 0.15em; border-radius: 3px; }
     .event-body a { color:var(--green); font-weight:600; }
 
     .winner-badge {
@@ -268,6 +269,21 @@
     <p class="reveal" style="font-size:1rem;line-height:1.75;color:var(--text-m);font-weight:300;max-width:700px;margin-bottom:3rem;">Take a look at some of the amazing memories we made connecting with the community at each of these fantastic events.</p>
 
     <div class="timeline">
+
+      <!-- Understanding Liver Health — CFN — November 14, 2026 -->
+      <div class="event-block reveal">
+        <div class="event-date">November 14, 2026</div>
+        <div class="event-card">
+          <div class="event-card-layout">
+            <div class="carousel" data-folder="LHC_CFN_collab_event_Nov_2026" data-count="4" data-prize="true" data-prize-count="2"></div>
+            <div class="event-body">
+              <h3>Understanding Liver Health: Awareness, Prevention, and Access to Healthcare for Newcomers in Calgary</h3>
+              <p><em>Our first dedicated event in proud collaboration with the Centre for Newcomers</em></p>
+              <p>We were proud to have our first dedicated collab with the CFN. Which encompassed <span class="event-highlight">free lectures on Liver Health, Mediterranean Diet through a Cultural Lens, along with free Fibroscan plus consultation with a Hepatologist and Dietitian after</span>. We would to gratefully thank our collaborators at the CFN for this amazing partnership, and will be planning further events in partnership with the CFN. Special shoutout to our amazing volunteers for all their time and effort!</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Punjabi Health Series — September 4, 2026 -->
       <div class="event-block reveal">
@@ -508,7 +524,9 @@
       // Build slides
       const slides = [];
       for (let i = 1; i <= count; i++) slides.push({ src: `${base}${i}.jpg`, isPrize: false });
-      if (prize) slides.push({ src: `${base}Prize.jpg`, isPrize: true });
+      const prizeCount = parseInt(el.dataset.prizeCount || '0');
+      if (prize && prizeCount > 1) { for (let i = 1; i <= prizeCount; i++) slides.push({ src: `${base}Prize_${i}.jpg`, isPrize: true }); }
+      else if (prize) slides.push({ src: `${base}Prize.jpg`, isPrize: true });
 
       // Track
       const track = document.createElement('div');
