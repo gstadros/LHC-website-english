@@ -139,6 +139,8 @@
       object-fit: cover; flex-shrink: 0;
       display: block;
     }
+    .carousel.fill .carousel-track { height: 100%; min-height: 320px; }
+    .carousel.fill .carousel-track img, .carousel.fill .prize-slide, .carousel.fill .prize-slide img { height: 100%; min-height: 320px; }
     .carousel-btn {
       position: absolute; top: 50%; transform: translateY(-50%);
       background: rgba(0,0,0,0.45); color: #fff;
@@ -224,8 +226,8 @@
       .page-content { padding: 3rem 1.2rem 5rem; }
       .timeline { padding-left: 1.8rem; }
       .event-block::before { left: -2.2rem; }
-      .carousel-track { height: 220px; }
-      .carousel-track img, .prize-slide, .prize-slide img { height: 220px; }
+      .carousel-track, .carousel.fill .carousel-track { height: 220px; min-height: 0; }
+      .carousel-track img, .prize-slide, .prize-slide img, .carousel.fill .carousel-track img, .carousel.fill .prize-slide, .carousel.fill .prize-slide img { height: 220px; min-height: 0; }
     }
   </style>
 </head>
@@ -275,7 +277,7 @@
         <div class="event-date">November 14, 2026</div>
         <div class="event-card">
           <div class="event-card-layout">
-            <div class="carousel" data-folder="LHC_CFN_collab_event_Nov_2026" data-count="4" data-prize="true" data-prize-count="2"></div>
+            <div class="carousel fill" data-folder="LHC_CFN_collab_event_Nov_2026" data-count="4" data-prize="true" data-prize-count="2"></div>
             <div class="event-body">
               <h3>Understanding Liver Health: Awareness, Prevention, and Access to Healthcare for Newcomers in Calgary</h3>
               <p><em>Our first dedicated event in proud collaboration with the Centre for Newcomers</em></p>
